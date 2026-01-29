@@ -139,22 +139,22 @@ const IndexSections = () => {
           <div className="common_outline_btn mb-3 mx-auto btn_fit_width">SOME FACTS</div>
           <h2 className="h2mY">How It Works</h2>
 
-          <div className="mFeatures our_facts">
+          <div className="mFeatures our_facts common_card mt-4">
             <div className="row">
               <div className="col-md-4">
-                <div className="snFeature">
+                <div className="snFeature common_card">
                   <h4>Buy on PancakeSwap</h4>
                   <p>Buy Your Favorite Crypto Tokens Quickly Using PancakeSwap</p>
                 </div>
               </div>
               <div className="col-md-4">
-                <div className="snFeature">
+                <div className="snFeature common_card">
                   <h4>Live on DEXs</h4>
                   <p>Token Trading Is Live on All Leading DEX Platforms</p>
                 </div>
               </div>
               <div className="col-md-4">
-                <div className="snFeature">
+                <div className="snFeature common_card">
                   <h4>Use & Benefit</h4>
                   <p>Use your MEDCOIN  within the platform and across the health ecosystem</p>
                 </div>

@@ -58,7 +58,7 @@ export default function HeroSection() {
               </div>
               <div className="powered_by_content">
                 <p className="powered_by_text">POWERED BY</p>
-                <p className="powered_by_name">BINANCE</p>
+                <p className="powered_by_name">BINANCE SMART CHAIN</p>
                 <p className="powered_by_smart_name">SMART CHAIN</p>
               </div>
             </div>
@@ -81,8 +81,8 @@ export default function HeroSection() {
 
       <div className="col-lg-5 relative">
         <div className="d-flex flex-column gap-3 px-3">
-          <div className="common_card">
-            <p className="colored_text">Official Contract Address</p>
+          <div className="common_card card-glass">
+            <p className="colored_text gold_color_text">Official Contract Address</p>
             <div className="hero_code_section d-flex align-items-center justify-content-between">
               <p className="text-truncate d-block d-md-inline ">{fullAddress}</p>
               <p
