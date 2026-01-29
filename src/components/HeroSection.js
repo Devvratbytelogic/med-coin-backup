@@ -64,7 +64,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <h1 className="position-relative gold_color_text_secondary">MedCoin is now listed on PancakeSwap 🚀</h1>
+          <h1 className="position-relative">MedCoin is now listed on PancakeSwap 🚀</h1>
           <Link
             to={`https://pancakeswap.finance/swap?outputCurrency=0xAAfA7Ef15233B80E0B99E125228f30220450784e`}
             target="_blank"
@@ -84,7 +84,7 @@ export default function HeroSection() {
           <div className="common_card">
             <p className="colored_text">Official Contract Address</p>
             <div className="hero_code_section d-flex align-items-center justify-content-between">
-              <p className="text-truncate d-block d-md-inline gold_text_color">{fullAddress}</p>
+              <p className="text-truncate d-block d-md-inline ">{fullAddress}</p>
               <p
                 className="cursor_pointer fs-6 mb-0"
                 onClick={handleCopy}
