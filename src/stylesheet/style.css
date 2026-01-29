@@ -1,14 +1,15 @@
 :root {
-	--primary-color: #060d20;
-	--secondary-color: #e6ab39;
-	--secondary-border-color: #FDF9D8;
+	--primary-color: #000411;
+	--secondary-color: #0F172A;
+	--secondary-border-color: #FFD700;
 	--secondary-light-color: #FDF9D8;
 	--white-color: #FFFFFF;
-	--btn-white-color: #e6ab39;
+	--btn-white-color: #0F172A;
 	--black-color: #fff;
 	--dark-color: #fff;
-	--glow-color: #07152a;
-	--team-border: #FFFFFF;
+	--text-color: #FFD700;
+	--glow-color: #0F172A;
+	--team-border: #FFD700;
 	--team-bg: #00000000;
 }
 
@@ -36,6 +37,7 @@
 	--btn-white-color: #FFFFFF;
 	--black-color: #212121;
 	--dark-color: #916F15;
+	--text-color: #916F15;
 	--glow-color: #CB9C41;
 	--team-border: #FFFFFF;
 	--team-bg: #00000000;
@@ -49,7 +51,7 @@
 body {
 	/* background: linear-gradient(135deg, #EDC44B 0%, #FBD963 100%); */
 	/* background: linear-gradient(266deg, #EDC44B 0%, #FBD963 100%); */
-	background: linear-gradient(266deg, #060d20 0%, #0a1f3a 100%);
+	background: var(--primary-color);
 	color: #fff;
 	font-family: "Alexandria", sans-serif;
 	transition: all 0.5s ease 0s;
@@ -66,11 +68,11 @@ body {
 }
 
 .colored_text {
-	color: var(--dark-color);
+	color: var(--text-color);
 }
 
 i {
-	color: var(--dark-color);
+	color: var(--text-color);
 }
 
 body:before {
@@ -162,7 +164,7 @@ header {
 
 
 .sliderSec h1 {
-	color: #FFF;
+	/* color: var(--text-color); */
 	text-shadow: 0 249px 70px rgba(0, 0, 0, 0.00), 0 159px 64px rgba(0, 0, 0, 0.01), 0 90px 54px rgba(0, 0, 0, 0.05), 0 40px 40px rgba(0, 0, 0, 0.09), 0 10px 22px rgba(0, 0, 0, 0.10);
 	font-size: 26px;
 	font-style: normal;
@@ -521,7 +523,7 @@ footer p {
 
 	#navbarScroll>div {
 		/* background: #6D6D6D4D; */
-		background: linear-gradient(90deg, var(--secondary-color) 0%, var(--dark-color) 100%);
+		background: linear-gradient(90deg, var(--secondary-color) 0%, var(--secondary-border-color) 100%);
 		border-radius: 50px;
 		padding: 1px;
 	}
@@ -537,7 +539,7 @@ footer p {
 		padding: 11px px !important;
 		font-weight: 300 !important;
 		font-size: 16px !important;
-		color: var(--dark-color);
+		color: var(--text-color);
 	}
 
 	.nav-link:hover {
@@ -676,7 +678,7 @@ footer p {
 
 	.partnersSec .h3mY,
 	.h2mY {
-		color: #fff;
+		color: var(--secondary-border-color);
 		font-size: 36px !important;
 	}
 
@@ -895,7 +897,7 @@ footer p {
 
 	#features .snFeature h4 {
 		margin-top: 0px !important;
-		color: #fff !important;
+		color: var(--secondary-border-color) !important;
 	}
 
 	.TeamInfoOuter {}
@@ -1171,7 +1173,7 @@ footer p {
 	font-weight: 400;
 	font-family: "Inter", sans-serif;
 	margin-bottom: 15px;
-	color: var(--dark-color);
+	color: var(--secondary-border-color);
 }
 
 .snFeature p {
@@ -1497,6 +1499,7 @@ footer h2 {
 	font-size: 20px;
 	line-height: 140%;
 	letter-spacing: 0%;
+	color: var(--secondary-border-color);
 
 }
 
@@ -1538,7 +1541,7 @@ footer input {
 	font-size: 12px;
 	line-height: 100%;
 	letter-spacing: 0%;
-	color: var(--white-color);
+	color: var(--secondary-border-color);
 	/* color: #999999; */
 
 }
@@ -2088,7 +2091,7 @@ affilateBg .aniIn {}
 	height: 40px;
 	/* background: #2A2A2A; */
 	background: var(--secondary-color);
-	color: var(--dark-color);
+	color: var(--text-color);
 	position: relative;
 	white-space: nowrap;
 	display: flex;
@@ -2196,28 +2199,33 @@ affilateBg .aniIn {}
 
 
 
-
+.gold_color_text {
+	color: var(--text-color)!important;
+}
+.gold_color_text_secondary {
+	color: var(--secondary-border-color)!important;
+}
 
 
 /* --------------------- */
 .common_btn {
 	background-color: var(--btn-white-color);
-	color: var(--dark-color);
+	color: var(--text-color);
 	min-height: 48px;
 	padding: 10px 30px;
 	border-radius: 100px;
-	border: 1px solid var(--white-color);
+	border: 1px solid var(--secondary-border-color);
 	cursor: pointer;
 	text-decoration: none;
 }
 
 .common_outline_btn {
 	background-color: transparent;
-	color: var(--white-color);
+	color: var(--secondary-border-color);
 	min-height: 48px;
 	padding: 10px 30px;
 	border-radius: 100px;
-	border: 1px solid var(--white-color);
+	border: 1px solid var(--secondary-border-color);
 	cursor: pointer;
 	text-decoration: none;
 }
@@ -2246,9 +2254,9 @@ affilateBg .aniIn {}
 	justify-content: space-between;
 	align-items: center;
 	gap: 30px;
-	color: var(--black-color);
+	color: var(--text-color);
 	font-size: 13px;
-	border: 1px solid var(--dark-color);
+	border: 1px solid var(--text-color);
 	padding: 13px 14px;
 	border-radius: 12px;
 }
@@ -2443,7 +2451,7 @@ body:has(.show1.navbar-collapse) .maquee {
 
 .theme_toggle_wrapper {
 	cursor: pointer;
-	background: linear-gradient(90deg, var(--secondary-color) 0%, var(--dark-color) 100%);
+	background: linear-gradient(90deg, var(--secondary-color) 0%, var(--secondary-border-color) 100%);
 	/* position: absolute;
 	z-index: 50;
 	top: 38px;
