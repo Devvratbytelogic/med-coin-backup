@@ -1672,6 +1672,10 @@ footer p {
 		font-size: 13px;
 		padding: 0.75rem 1rem;
 	}
+
+	.how-to-buy-video-wrapper {
+		position: static;
+	}
 }
 
 /* ========== RESPONSIVE: Small Mobile (400px) ========== */
@@ -3998,4 +4002,76 @@ body:has(.show1.navbar-collapse) .maquee {
 } */
 .main_content {
 	background: linear-gradient(180deg, rgba(15, 23, 42, .10) 0%, #020617 100%);
+}
+
+/* How to Buy page */
+.how-to-buy-section .subdecription {
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.how-to-buy-steps {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.how-to-buy-step-card {
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.how-to-buy-step-card:hover {
+	border-color: rgba(212, 154, 81, 0.3);
+	box-shadow: 0 0 20px rgba(212, 154, 81, 0.08);
+}
+
+.how-to-buy-step-num {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+	min-width: 32px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, rgba(253, 255, 229, 0.15) 0%, rgba(212, 154, 81, 0.25) 100%);
+	border: 1px solid rgba(212, 154, 81, 0.4);
+}
+
+.how-to-buy-step-num .step-num {
+	font-weight: 600;
+	font-size: 13px;
+	background: linear-gradient(180deg, #DDDFC2 0%, #D49A51 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.how-to-buy-step-content p {
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+.how-to-buy-step-content a:hover {
+	opacity: 0.9;
+}
+
+.how-to-buy-video-container {
+	position: relative;
+	width: 100%;
+	border-radius: 0 0 24px 24px;
+	overflow: hidden;
+	background: #000;
+}
+
+.how-to-buy-video {
+	width: 100%;
+	display: block;
+	vertical-align: middle;
+}
+
+.how-to-buy-video-wrapper {
+	position: sticky;
+	top: 120px;
 }

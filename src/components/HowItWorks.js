@@ -2,7 +2,7 @@ import React from 'react';
 
 const HowItWorks = () => {
   return (
-    <section className="text-center padSec how-it-works-section" id='work'>
+    <section className="text-center padSec how-it-works-section pt-0" id='work'>
       <div className="container">
         <h2 className="h2mY">How it <span className='gold_color_text'>Works</span></h2>
 

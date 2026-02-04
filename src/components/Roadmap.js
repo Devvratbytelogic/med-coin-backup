@@ -45,7 +45,7 @@ const Roadmap = () => {
   }, []);
 
   return (
-    <section className="roadmap-section text-center padSec" id="roadmap" ref={roadmapRef}>
+    <section className="roadmap-section text-center padSec pt-0" id="roadmap" ref={roadmapRef}>
       <div className="container">
         <div className="common_outline_btn btn_fit_width mx-auto mb-3">ABOUT ICO</div>
         <h2 className="roadmap-title h2mY">Road <spna className='gold_color_text'>Map</spna></h2>

@@ -115,9 +115,9 @@ const IndexSections = () => {
         <WhyMedcoin />
         <HowItWorks />
 
-        <section className="text-center padSec" id='tokenomics'>
+        <section className="text-center padSec pt-0" id='tokenomics'>
           <div className="container">
-            <div className="common_outline_btn btn_fit_width mx-auto mb-3">Tokenomics</div>
+            {/* <div className="common_outline_btn btn_fit_width mx-auto mb-3">Tokenomics</div> */}
             <h2 className="h2mY">Token <span className='gold_color_text'>Distribution</span> </h2>
             <p className='subdecription'>Token Supply - 1,000,000,000 MEDC</p>
             <div className="row align-items-center">
@@ -215,7 +215,7 @@ const IndexSections = () => {
 
         <Roadmap />
 
-        <section className="topnSalw text-center padSec">
+        <section className="topnSalw text-center padSec pt-0">
           <div className="container">
             <h2 className="h2mY">Token <span className='gold_color_text'>Sale</span></h2>
 
@@ -314,7 +314,7 @@ const IndexSections = () => {
           </div>
         </section>
 
-        <section className="text-center padSec pb-0" id='team'>
+        <section className="text-center padSec pt-0" id='team'>
           <div className="container">
             <h2 className="h2mY">Our <span className='gold_color_text'>Team</span></h2>
             <Team />
@@ -323,7 +323,7 @@ const IndexSections = () => {
 
 
         {/* <section className="padSec trust_vision_section"> */}
-        <section className="padSec trust_vision_section">
+        <section className="padSec trust_vision_section pt-0">
           <div className="container">
             <div className="text-center bgRevolutionary">
               <div className="common_outline_btn btn_fit_width mx-auto mb-3"><span className='gold_color_text'>Revolutionary</span></div>
@@ -340,11 +340,11 @@ const IndexSections = () => {
             </div>
           </div>
         </section>
-      </div>
 
 
 
       <Footer />
+      </div>
     </>
   );
 };

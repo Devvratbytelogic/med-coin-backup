@@ -5,7 +5,7 @@ const WhyMedcoin = () => {
     const barHeights = [28, 18, 32, 22, 26, 14, 24, 20];
 
     return (
-        <section className="why-medcoin-section text-start padSec pb-0" id='why'>
+        <section className="why-medcoin-section text-start padSec pt-0" id='why'>
             <div className="why-medcoin-dots-bg" />
             <h2 className="h2mY text-center">Why <span className='gold_color_text'>MEDCOIN?</span></h2>
 
