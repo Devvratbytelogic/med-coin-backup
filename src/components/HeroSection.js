@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import BinanceHero from "./BinanceHero";
 
 export default function HeroSection() {
   const fullAddress = "0xAAfA7Ef15233B80E0B99E125228f30220450784e";
@@ -17,14 +18,7 @@ export default function HeroSection() {
       <div className="col-lg-7">
         <div className="snLeft px-3">
           <div className="hero_content">
-            <div className="powered_by">
-              <div className="powered_by_img">
-                <img src="/images/binance.png" className="img-fluid img_contain" />
-              </div>
-              <div className="powered_by_content">
-                <p className="powered_by_name">BINANCE SMART CHAIN</p>
-              </div>
-            </div>
+            <BinanceHero />
             <h1 className="pe-4">Best selling ICO future of trading <span className="gold_color_text">MEDCOIN</span></h1>
             <p>Experience the future of business with intelligent, scalable <br /> automation solutions tailored to your needs</p>
             <div className="mt-2">

@@ -128,7 +128,7 @@ function App() {
                </Routes>
             </Router>
          </Context.Provider>
-         <Translator />
+         {/* <Translator /> */}
          <Reactconnectwallet onWalletConnect={onWalletConnect} onMetamaskConnect={onMetamaskConnect} modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
       </>
    );
