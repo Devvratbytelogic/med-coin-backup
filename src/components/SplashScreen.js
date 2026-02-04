@@ -15,7 +15,7 @@ const SplashScreen = () => {
   return showSplash ? (
     <div className="splash-container">
       <div className="logo-wrapper">
-        <img src='./images/circleLogo.svg' alt="MedCoin Logo" className="splash-logo" />
+        <img src='./images/final/logo.png' alt="MedCoin Logo" className="splash-logo" />
       </div>
     </div>
   ) : null;

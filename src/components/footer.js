@@ -26,7 +26,7 @@ const Menu = () => {
 
             <div className="col-md-2 w-20">
               <div className="snF">
-                <h4>Quick links</h4>
+                <h4 className="gold_color_text">Quick links</h4>
                 <ul>
                   <li><a href="/">Home</a></li>
                   <li><a href="#features">Features</a></li>
@@ -37,7 +37,7 @@ const Menu = () => {
             </div>
             <div className="col-md-2 w-20">
               <div className="snF">
-                <h4>Help</h4>
+                <h4 className="gold_color_text">Help</h4>
                 <ul>
                   <li><a href="/medcoin-whitepaper-new.pdf" target='_blank'>Whitepaper</a></li>
                   {/* <li><a href="/faq">FAQ</a></li>
@@ -47,7 +47,7 @@ const Menu = () => {
             </div>
             <div className="col-md-2 w-20">
               <div className="snF">
-                <h4>Social Media</h4>
+                <h4 className="gold_color_text">Social Media</h4>
                 <ul>
                   <li>
                     <a href="https://instagram.com/medcoin.ai" target="_blank" rel="noopener noreferrer">
@@ -70,7 +70,7 @@ const Menu = () => {
 
             <div className="col-md-2 w-20">
               <div className="snF text-start">
-                <h4>Join our Telegram group and follow our social media for more updates.</h4>
+              <h4 className="gold_color_text">Join our Telegram group and follow our social media for more updates.</h4>
                 {/* <div className=" borderBottom d-flex justify-content-between gap-2">
                   <input type="text" name="" placeholder="Your email address" className="w-100 email_input" />
                   <button className="submitBtn"><i className="fa-solid fa-arrow-right"></i></button>
@@ -80,7 +80,7 @@ const Menu = () => {
           </div>
           {/* <div className="copy">© 2025. All rights reserved.</div> */}
           <div className="copy">
-            © {currentYear} MedCoin.AI | All rights reserved. Proudly Developed By: <a href="https://bytelogicindia.com" target="_blank">Bytelogic Technologies</a>
+            © {currentYear} MedCoin.AI | All rights reserved. Proudly Developed By: <a href="https://bytelogicindia.com" target="_blank" className="gold_color_text">Bytelogic Technologies</a>
           </div>
         </div>
       </footer>

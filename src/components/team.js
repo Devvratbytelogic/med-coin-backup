@@ -37,7 +37,8 @@ const TeamSlider = () => {
 
   const teamMembers = [
     {
-      imgLight: "./images/globe.svg",
+      // imgLight: "./images/globe.svg",
+      imgLight: "./images/our-team-new.png",
       imgDark: "./images/our-team-new.png",
       name: "", title: "Team MedCoin", desc: "Our team is composed of specialists in blockchain and medicine — visionary professionals committed to transforming global healthcare through innovation, empathy, and technology.", desc2: 'We believe a decentralized approach represents our mission best.'
     },
@@ -62,7 +63,7 @@ const TeamSlider = () => {
                   </div>
                   <div className='col-md-8'>
                     <h3>{member.name}</h3>
-                    <p className='teamdesc mb-0'>{member.title}</p>
+                    <p className='teamdesc gold_color_text mb-4'>{member.title}</p>
                     <p className='teamdescP'>{member.desc}</p>
                     <p className='teamdescP'>{member.desc2}</p>
                   </div>

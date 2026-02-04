@@ -4,7 +4,9 @@ import IndexSections from '../components/index';  // ✅ Fix import
 const IndexPage = () => {
   return (
     <>
-      <IndexSections />  {/* ✅ Fix component usage */}
+      <div className="">
+        <IndexSections />  {/* ✅ Fix component usage */}
+      </div>
     </>
   );
 };

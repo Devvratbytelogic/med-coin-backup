@@ -33,7 +33,7 @@ const Menu = () => {
 
           <nav className="navbar navbar-expand-lg navbar-dark flex-nowrap justify-content-between">
             <a className="navbar-brand" href="./">
-              <img className="logo desktop" src="images/logo.svg" alt="" />
+              <img className="logo desktop" src="./images/final/logo.png" alt="" />
             </a>
             <div className="d-flex gap-2 justify-content-center align-items-center">
               <button onClick={handleToggleMenu} className={`navbar-toggler collapsed ${menuOpen ? "show1" : ""}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@ const Menu = () => {
                     <a onClick={handleCloseMenu} className="nav-link" href="./#faq">FAQ</a>
                   </li> */}
                       <li className="nav-item">
-                        <a onClick={handleCloseMenu} className="nav-link" href="/medcoin-whitepaper-new.pdf" target='_blank'>Whitepaper</a>
+                        <a onClick={handleCloseMenu} className="nav-link" href="/final-whitepaper.pdf" target='_blank'>Whitepaper</a>
                       </li>
                       <li className="nav-item">
                         {/* <a onClick={handleCloseMenu} className="nav-link" href="/claim-refund">Claim&nbsp;Refund</a> */}
@@ -94,7 +94,7 @@ const Menu = () => {
                   </div>
                 </div>
               </div>
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
             </div>
           </nav>
         </div>
