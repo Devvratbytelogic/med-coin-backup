@@ -7,10 +7,9 @@ import SplashScreen from "./SplashScreen.js";
 import HeroSection from './HeroSection.js';
 import Roadmap from './Roadmap.js';
 import { FlexiblePaymentsSVG, GlobalHealthcareSVG, MedicalRevolutionSVG, RealUtilitySVG, TechIntegrationSVG, TelemedicinePlatformSVG } from './AllSVG.js';
-import HeroWaveBackground, { GoldenTrailCanvas } from './HeroWaveBackground.js';
 import WhyMedcoin from './WhyMedcoin.js';
 import HowItWorks from './HowItWorks.js';
-// import HeroWaveBackground, { GoldenTrailCanvas } from './HeroWaveBackground.js';
+import HeroWaveBackground from './HeroWaveBackground.js';
 
 const IndexSections = () => {
   return (
@@ -22,9 +21,9 @@ const IndexSections = () => {
       <section className="sliderSec padSec overHide pb-0" id='top'>
         {/* <div className="ParticleCanvas"><ParticleCanvas /></div> */}
         <div className='hero-wrapper'>
-          {/* <HeroWaveBackground /> */}
-          <GoldenTrailCanvas />
-          <div className="container p-0 mt-md-5 mt-lg-0">
+          <HeroWaveBackground />
+          {/* <GoldenTrailCanvas /> */}
+          <div className="container p-0 mt-md-5 mt-lg-0 ">
             <div className="row align-items-center gy-5">
               <HeroSection />
             </div>

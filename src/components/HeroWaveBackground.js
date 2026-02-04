@@ -1,201 +1,128 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
+
 const DPR =
-  typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
+  typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;
 
-function resizeCanvas(canvas, ctx) {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-
-  canvas.width = width * DPR;
-  canvas.height = height * DPR;
-  canvas.style.width = `${width}px`;
-  canvas.style.height = `${height}px`;
-
-  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-}
-// import { resizeCanvas, DPR } from "./canvasUtils";
-
-export default function HeroWaveBackground() {
+const HeroWaveBackground = () => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
 
-  const DOT_GAP = 28;
-  const ROWS = 40;
-  const COLOR = "#f5c542";
+  /* 🔧 Tuned constants (image matched) */
+  // const DOT_GAP = 50;
+  // const COLS = 70;
+  // const ROWS = 75;
+  // const COLOR = '#f5c542';
+  // const FOCAL_LENGTH = 900;
+  // const WAVE_STRENGTH = 45;
+  // const SPEED = 0.018;
+  // const HORIZON_Y = 0.62; // lower horizon
+  const DOT_GAP = 35;
+  const COLS = 200;
+  const ROWS = 300;
+  const FOCAL_LENGTH = 900;
+  const WAVE_STRENGTH = 60;
+  const SPEED = 0.05;
+  const HORIZON_Y = 0.68;
+  const MAX_DISTANCE = 180;
+  const COLOR = '#f5c542';
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    if (!canvas) return;
 
-    let dots = [];
-    let time = 0;
+    const ctx = canvas.getContext('2d', { alpha: false });
+    if (!ctx) return;
+
     let width = 0;
     let height = 0;
+    let dots = [];
+    let time = 0;
 
-    const createGrid = () => {
+    const initGrid = () => {
       dots = [];
-      const cols = Math.ceil(width / DOT_GAP);
+      const startX = -(COLS * DOT_GAP) / 2;
+      const startZ = 0;
 
-      for (let r = 0; r < ROWS; r++) {
-        for (let c = 0; c < cols; c++) {
+      for (let z = 0; z < ROWS; z++) {
+        for (let x = 0; x < COLS; x++) {
           dots.push({
-            x: c * DOT_GAP,
-            y: r * DOT_GAP,
-            depth: r / ROWS,
+            x: startX + x * DOT_GAP,
+            z: z * DOT_GAP,
+            baseY: height * HORIZON_Y,
           });
         }
       }
     };
 
-    const handleResize = () => {
-      resizeCanvas(canvas, ctx);
-      width = canvas.width / DPR;
-      height = canvas.height / DPR;
-      createGrid();
+    const resize = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+
+      canvas.width = width * DPR;
+      canvas.height = height * DPR;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      initGrid();
     };
 
     const animate = () => {
-      ctx.clearRect(0, 0, width, height);
+      /* Background */
+      ctx.fillStyle = '#030712';
+      ctx.fillRect(0, 0, width, height);
+
+      const cx = width / 2;
+      const cy = height / 2;
 
       for (const dot of dots) {
         const wave =
-          Math.sin((dot.x + time) * 0.015) * 20 +
-          Math.cos((dot.y + time) * 0.02) * 20;
+          Math.sin(dot.x * 0.004 + time) * WAVE_STRENGTH +
+          Math.cos(dot.z * 0.003 + time * 0.8) * WAVE_STRENGTH;
 
-        const size = 1.2 + dot.depth * 1.5;
-        const alpha = 0.4 + dot.depth * 0.7;
+        const y = dot.baseY + wave;
+
+        const scale = FOCAL_LENGTH / (FOCAL_LENGTH + dot.z);
+        const sx = cx + dot.x * scale;
+        const sy = cy + y * scale;
+
+        if (sy > height + 60 || sx < -60 || sx > width + 60) continue;
+
+        /* Fog / depth fade */
+        const depthFade = 1 - dot.z / (ROWS * DOT_GAP);
+        const alpha = Math.max(0.08, depthFade * scale * 1.4);
+
+        const size = Math.max(0.4, 2.6 * scale);
 
         ctx.globalAlpha = alpha;
         ctx.fillStyle = COLOR;
-
         ctx.beginPath();
-        ctx.arc(
-          dot.x,
-          height * 0.55 + dot.y + wave,
-          size,
-          0,
-          Math.PI * 2
-        );
+        ctx.arc(sx, sy, size, 0, Math.PI * 2);
         ctx.fill();
       }
 
       ctx.globalAlpha = 1;
-      time += 1;
+      time += SPEED;
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
+    resize();
+    window.addEventListener('resize', resize);
     animate();
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationRef.current);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="hero-wave-canvas hero-wave" />;
-}
+  return (
+    <canvas
+      ref={canvasRef}
+      className="hero-wave-canvas"
+      aria-hidden="true"
+    />
+  );
+};
 
-
-// import { useEffect, useRef } from "react";
-// import { resizeCanvas, DPR } from "./canvasUtils";
-
-export function GoldenTrailCanvas() {
-  const canvasRef = useRef(null);
-  const animationRef = useRef(null);
-  const mouse = useRef({ x: -1000, y: -1000 });
-  const nodes = useRef([]);
-
-  const NODE_COUNT = 120;
-  const CONNECTION_DIST = 160;
-  const MOUSE_DIST = 200;
-
-  const initNodes = (w, h) => {
-    nodes.current = Array.from({ length: NODE_COUNT }, () => ({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-    }));
-  };
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-
-    let width = 0;
-    let height = 0;
-
-    const handleResize = () => {
-      resizeCanvas(canvas, ctx);
-      width = canvas.width / DPR;
-      height = canvas.height / DPR;
-      initNodes(width, height);
-    };
-
-    const draw = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      for (let i = 0; i < nodes.current.length; i++) {
-        const n = nodes.current[i];
-
-        n.x += n.vx;
-        n.y += n.vy;
-
-        if (n.x < 0 || n.x > width) n.vx *= -1;
-        if (n.y < 0 || n.y > height) n.vy *= -1;
-
-        const dx = mouse.current.x - n.x;
-        const dy = mouse.current.y - n.y;
-        const dist = Math.hypot(dx, dy);
-
-        if (dist < MOUSE_DIST) {
-          n.x += dx * 0.01;
-          n.y += dy * 0.01;
-        }
-
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(243,186,47,0.6)";
-        ctx.fill();
-
-        for (let j = i + 1; j < nodes.current.length; j++) {
-          const n2 = nodes.current[j];
-          const d = Math.hypot(n.x - n2.x, n.y - n2.y);
-
-          if (d < CONNECTION_DIST) {
-            ctx.strokeStyle = `rgba(243,186,47,${
-              (1 - d / CONNECTION_DIST) * 0.25
-            })`;
-            ctx.lineWidth = 0.8;
-            ctx.beginPath();
-            ctx.moveTo(n.x, n.y);
-            ctx.lineTo(n2.x, n2.y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      animationRef.current = requestAnimationFrame(draw);
-    };
-
-    const handleMouseMove = (e) => {
-      mouse.current.x = e.clientX;
-      mouse.current.y = e.clientY;
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouseMove);
-    draw();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("mousemove", handleMouseMove);
-      cancelAnimationFrame(animationRef.current);
-    };
-  }, []);
-
-  return <canvas ref={canvasRef} className="hero-wave-canvas d-none d-md-block" />;
-}
+export default HeroWaveBackground;
