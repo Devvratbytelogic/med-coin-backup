@@ -145,8 +145,11 @@ header {
 	padding: 30px 0px;
 }
 
+.sliderSec .hero_container {
+	padding-top: 50px;
+}
+
 .sliderSec {
-	padding-top: 150px;
 	padding-bottom: 40px;
 	position: relative;
 }
@@ -177,6 +180,11 @@ header {
 	font-style: normal;
 	font-weight: 500;
 	line-height: 110%;
+}
+
+.hero_subtitle {
+	font-size: 24px;
+	font-weight: 500;
 }
 
 .sliderSec h2 {
@@ -649,8 +657,6 @@ footer p {
 	}
 
 	.sliderSec {
-		/* background: #00000096; */
-		padding-top: 200px;
 		padding-bottom: 80px;
 	}
 
@@ -950,9 +956,7 @@ footer p {
 		width: 100%;
 	}
 
-	.sliderSec {
-		padding-top: 110px;
-	}
+
 
 	.navbar-collapse {
 		position: fixed;
@@ -1177,14 +1181,11 @@ footer p {
 		padding-right: 0.5rem !important;
 	}
 
+	.hero_content .hero_buttons,
 	.hero_content .mt-2 {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
-	}
-
-	.hero_content .mt-2 .ms-3 {
-		margin-left: 0 !important;
 	}
 
 	.hero_content .d-flex.gap-3 .common_outline_btn {
@@ -1453,11 +1454,6 @@ footer p {
 		font-size: 28px !important;
 	}
 
-	.sliderSec {
-		padding-top: 90px !important;
-		/* padding-bottom: 30px !important; */
-	}
-
 	.padSec {
 		padding: 30px 0;
 	}
@@ -1471,30 +1467,22 @@ footer p {
 	}
 
 	/* Hero - stack buttons */
+	.hero_content .hero_buttons,
 	.hero_content .mt-2 {
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
 	}
 
+	.hero_content .hero_buttons .common_outline_btn,
 	.hero_content .mt-2 .common_outline_btn {
 		width: 100%;
 		text-align: center;
 		justify-content: center;
 	}
 
-	.hero_content .mt-2 .ms-3 {
-		margin-left: 0 !important;
-	}
-
 	.hero_content h1 {
 		padding-right: 0 !important;
-	}
-
-	.hero_code_section {
-		flex-direction: column;
-		align-items: flex-start !important;
-		gap: 8px;
 	}
 
 	.hero_content .d-flex.gap-3 {
@@ -1512,10 +1500,6 @@ footer p {
 	.hero_logo_section_wrapper .logo_image_wrapper {
 		height: 120px;
 		width: 120px;
-	}
-
-	.powered_by_content .powered_by_name {
-		font-size: 14px !important;
 	}
 
 	/* Features - single column */
@@ -2485,7 +2469,7 @@ footer h2 {
 	margin-top: 35px;
 	font-family: "Inter", sans-serif;
 	font-weight: 400;
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 140%;
 	letter-spacing: 0%;
 	color: var(--secondary-border-color);
@@ -3196,6 +3180,46 @@ affilateBg .aniIn {}
 	color: var(--secondary-border-color) !important;
 }
 
+.coinstore_badge {
+	margin-top: 1rem;
+}
+
+.coinstore_badge_inner {
+	padding: 8px 16px;
+	border-radius: 100px;
+	background: linear-gradient(var(--primary-color), var(--primary-color)) padding-box,
+		linear-gradient(to right, #FDFFE5, var(--btn-border-color)) border-box;
+	border: 1px solid transparent;
+	width: fit-content;
+}
+
+.coinstore_badge .coinstore-logo {
+	height: 32px;
+	object-fit: contain;
+}
+
+.coinstore_badge .colored_text {
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+.coinstore_verified {
+	font-size: 0.85rem;
+	color: var(--btn-border-color);
+}
+
+[data-theme="dark"] .coinstore_badge .colored_text {
+	color: var(--black-color);
+}
+
+[data-theme="dark"] .coinstore_badge_inner {
+	background: linear-gradient(var(--secondary-color), var(--secondary-color)) padding-box,
+		linear-gradient(to right, #FDFFE5, var(--btn-border-color)) border-box;
+}
+
+[data-theme="dark"] .coinstore_verified {
+	color: var(--black-color);
+}
 
 /* --------------------- */
 .common_btn {
@@ -3256,6 +3280,7 @@ affilateBg .aniIn {}
 .hero_code_section {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: nowrap;
 	align-items: center;
 	gap: 30px;
 	border: 1px solid #FFFFFF14;
@@ -3391,91 +3416,6 @@ affilateBg .aniIn {}
 	z-index: 1;
 }
 
-.powered_by {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-	position: relative;
-	z-index: 1;
-	margin-bottom: 10px;
-	width: fit-content;
-	margin-left: -20px;
-}
-
-
-
-.powered_by_img {
-	width: 40px;
-	height: 40px;
-}
-
-.powered_by_with_line .powered_by_img,
-.powered_by_with_line .powered_by_content {
-	position: relative;
-	z-index: 1;
-}
-
-.powered_by_content {
-	text-align: left;
-	display: flex;
-	flex-direction: column;
-}
-
-.powered_by_content p {
-	margin-bottom: 0;
-}
-
-.powered_by_content .powered_by_text,
-.powered_by_content .powered_by_smart_name {
-	font-size: 18px;
-	line-height: normal;
-}
-
-.powered_by_content .powered_by_name {
-	font-size: 20px;
-	color: var(--text-color);
-	font-weight: 600;
-	line-height: normal;
-}
-
-.powered_by_img img {
-	filter: brightness(0) saturate(100%) invert(74%) sepia(38%) saturate(520%) hue-rotate(6deg) brightness(95%) contrast(92%);
-}
-
-/* Binance hero animated line */
-.powered_by_with_line {
-	padding: 16px 20px;
-	overflow: visible;
-}
-
-.powered_by_line_svg {
-	position: absolute;
-	inset: 0;
-	width: 100%;
-	height: 100%;
-	pointer-events: none;
-}
-
-.powered_by_line_path {
-	animation: poweredByLineDraw 2.5s ease-in-out infinite;
-}
-
-@keyframes poweredByLineDraw {
-	0% {
-		stroke-dashoffset: 100;
-	}
-	80% {
-		stroke-dashoffset: 0;
-	}
-	80.01% {
-		stroke-dashoffset: 100;
-	}
-	100% {
-		stroke-dashoffset: 100;
-	}
-}
-
-
 .img_card img {
 	width: 100%;
 	height: 100%;
@@ -3551,6 +3491,70 @@ affilateBg .aniIn {}
 	position: relative;
 }
 
+.hero_img_container {
+	width: 300px;
+	height: 300px;
+	min-width: 300px;
+	min-height: 300px;
+	object-fit: contain;
+	/* margin: 0 auto; */
+}
+
+.hero_img_container img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+/* Hero section responsive */
+@media (max-width: 991px) {
+	.hero_top_row {
+		justify-content: center !important;
+	}
+
+	.pancake_img {
+		position: relative;
+		right: auto;
+		top: auto;
+		margin-top: 1rem;
+		max-width: 120px;
+	}
+}
+
+@media (max-width: 768px) {
+	.hero_img_container {
+		width: 180px;
+		height: 180px;
+		min-width: 180px;
+		min-height: 180px;
+	}
+	.hero_subtitle {
+		font-size: 20px;
+		text-align: center;
+	}
+	.hero_buttons .common_outline_btn {
+		width: 100%;
+		justify-content: center;
+	}
+	.pancake_img {
+		max-width: 100px;
+	}
+}
+
+@media (max-width: 576px) {
+	.hero_img_container {
+		width: 250px;
+		height: 250px;
+		min-width: 250px;
+		min-height: 250px;
+	}
+	.hero_subtitle {
+		font-size: 18px;
+	}
+	.pancake_img {
+		max-width: 80px;
+	}
+}
 
 /* Why Medcoin Section */
 
@@ -3793,6 +3797,12 @@ affilateBg .aniIn {}
 
 	.why_medcoin_logo_wrapper {
 		display: flex;
+		justify-content: center;
+	}
+	.hero_content{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		justify-content: center;
 	}
 }
@@ -4112,3 +4122,6 @@ affilateBg .aniIn {}
 	height: 100%;
 	z-index: -1;
 }
+/* .footer_email{
+	white-space: ;
+} */

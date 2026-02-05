@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import Context from "../context/context";
-import { NavLink as Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 
 const Menu = () => {
   const { account, onConnect, providers } = useContext(Context);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const [menuOpen, setMenuOpen] = useState(false);
   const handleToggleMenu = () => {
@@ -12,6 +14,19 @@ const Menu = () => {
   };
   const handleCloseMenu = () => {
     setMenuOpen(false);
+  };
+
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    handleCloseMenu();
+    if (location.pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate({ pathname: '/', hash: sectionId });
+    }
   };
 
   const [scrolled, setScrolled] = useState(false);
@@ -57,16 +72,16 @@ const Menu = () => {
                         <a onClick={handleCloseMenu} className="nav-link" href="/">Home</a>
                       </li>
                       <li className="nav-item">
-                        <a onClick={handleCloseMenu} className="nav-link" href="./#features">Features</a>
+                        <a onClick={(e) => scrollToSection(e, "features")} className="nav-link" href="/#features">Features</a>
                       </li>
                       <li className="nav-item">
-                        <a onClick={handleCloseMenu} className="nav-link" href="./#roadmap">Roadmap</a>
+                        <a onClick={(e) => scrollToSection(e, "roadmap")} className="nav-link" href="/#roadmap">Roadmap</a>
                       </li>
                       <li className="nav-item">
-                        <a onClick={handleCloseMenu} className="nav-link" href="./#tokenomics">Tokenomics</a>
+                        <a onClick={(e) => scrollToSection(e, "tokenomics")} className="nav-link" href="/#tokenomics">Tokenomics</a>
                       </li>
                       <li className="nav-item">
-                        <a onClick={handleCloseMenu} className="nav-link" href="./#team">Team</a>
+                        <a onClick={(e) => scrollToSection(e, "team")} className="nav-link" href="/#team">Team</a>
                       </li>
                       {/* <li className="nav-item">
                     <a onClick={handleCloseMenu} className="nav-link" href="./#faq">FAQ</a>

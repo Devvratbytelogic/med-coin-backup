@@ -7,24 +7,20 @@ const HeroWaveBackground = () => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
 
-  /* 🔧 Tuned constants (image matched) */
-  // const DOT_GAP = 50;
-  // const COLS = 70;
-  // const ROWS = 75;
-  // const COLOR = '#f5c542';
-  // const FOCAL_LENGTH = 900;
-  // const WAVE_STRENGTH = 45;
-  // const SPEED = 0.018;
-  // const HORIZON_Y = 0.62; // lower horizon
-  const DOT_GAP = 35;
-  const COLS = 200;
-  const ROWS = 300;
+  /* 🔧 Tuned constants - reduced grid on mobile to prevent hang */
+  const COLOR = '#f5c542';
   const FOCAL_LENGTH = 900;
   const WAVE_STRENGTH = 60;
   const SPEED = 0.05;
   const HORIZON_Y = 0.68;
-  const MAX_DISTANCE = 180;
-  const COLOR = '#f5c542';
+
+  const getGridConfig = () => {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      return { DOT_GAP: 35, COLS: 100, ROWS: 100 };
+    }
+    return { DOT_GAP: 35, COLS: 200, ROWS: 300 };
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -37,8 +33,11 @@ const HeroWaveBackground = () => {
     let height = 0;
     let dots = [];
     let time = 0;
+    let gridConfig = getGridConfig();
 
     const initGrid = () => {
+      gridConfig = getGridConfig();
+      const { DOT_GAP, COLS, ROWS } = gridConfig;
       dots = [];
       const startX = -(COLS * DOT_GAP) / 2;
       const startZ = 0;
@@ -74,6 +73,8 @@ const HeroWaveBackground = () => {
 
       const cx = width / 2;
       const cy = height / 2;
+      const { ROWS, DOT_GAP } = gridConfig;
+      const maxZ = ROWS * DOT_GAP;
 
       for (const dot of dots) {
         const wave =
@@ -89,7 +90,7 @@ const HeroWaveBackground = () => {
         if (sy > height + 60 || sx < -60 || sx > width + 60) continue;
 
         /* Fog / depth fade */
-        const depthFade = 1 - dot.z / (ROWS * DOT_GAP);
+        const depthFade = 1 - dot.z / maxZ;
         const alpha = Math.max(0.08, depthFade * scale * 1.4);
 
         const size = Math.max(0.4, 2.6 * scale);

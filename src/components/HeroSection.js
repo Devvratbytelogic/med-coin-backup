@@ -18,23 +18,40 @@ export default function HeroSection() {
       <div className="col-lg-7">
         <div className="snLeft px-3">
           <div className="hero_content">
-            <BinanceHero />
-            <h1 className="pe-4">Best selling ICO future of trading <span className="gold_color_text">MEDCOIN</span></h1>
-            <p>Experience the future of business with intelligent, scalable <br /> automation solutions tailored to your needs</p>
-            <div className="mt-2">
+            <div className="hero_top_row d-flex flex-column flex-xl-row align-items-start align-items-xl-center justify-content-between gap-3 gap-md-0">
+              <div className="hero_img_container">
+                <img src="./images/final/hero-banner.webp" alt="MEDCOIN" />
+              </div>
+              <BinanceHero />
+            </div>
+            <p className="hero_subtitle gold_color_text">AI-Powered Healthcare on Blockchain.</p>
+            {/* <h1 className="pe-4">Best selling ICO future of trading <span className="gold_color_text">MEDCOIN</span></h1>
+            <p>Experience the future of business with intelligent, scalable <br /> automation solutions tailored to your needs</p> */}
+            <div className="hero_buttons mt-2 d-flex flex-wrap gap-2">
               <Link
                 to={`https://pancakeswap.finance/swap?outputCurrency=0xAAfA7Ef15233B80E0B99E125228f30220450784e`}
                 target="_blank"
               >
-                <button className="common_outline_btn position-relative z-index-1">Buy on PancakeSwap</button>
+                <button className="common_outline_btn position-relative z-index-1">Buy on CoinStore</button>
               </Link>
               <Link
                 to={`/how-to-buy`}
               >
-                <button className="common_outline_btn position-relative z-index-1 ms-3">How to buy?</button>
+                <button className="common_outline_btn position-relative z-index-1">How to buy?</button>
               </Link>
             </div>
-            <img src="./images/pancake.svg" className="img-fluid pancake_img" />
+            <div className="coinstore_badge d-flex align-items-center gap-2 mt-3">
+              <a href="https://www.coinstore.com" target="_blank">
+                <div className="coinstore_badge_inner d-flex align-items-center gap-2">
+                  <img src="/images/final/coin-store.png" alt="CoinStore" className="coinstore-logo" />
+                  <span className="colored_text">
+                    Officially listed on <span className="gold_color_text">CoinStore</span>.
+                  </span>
+                  <i className="fa-solid fa-circle-check coinstore_verified" aria-hidden="true"></i>
+                </div>
+              </a>
+            </div>
+            <img src="./images/pancake.svg" className="img-fluid pancake_img" alt="" />
 
           </div>
         </div>
@@ -44,7 +61,7 @@ export default function HeroSection() {
         <div className="d-flex flex-column gap-3 px-3">
           <div className="common_card card-glass">
             <p className="colored_text">Official Contract Address</p>
-            <div className="hero_code_section d-flex align-items-center justify-content-between">
+            <div className="hero_code_section">
               <p className="text-truncate d-block d-md-inline ">{fullAddress}</p>
               <p
                 className="cursor_pointer fs-6 mb-0"

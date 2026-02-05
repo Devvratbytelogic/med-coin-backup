@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Menu from "./menu";
 import Footer from "./footer";
 import Piechart from "./piechart.js";
@@ -12,6 +13,18 @@ import HowItWorks from './HowItWorks.js';
 import HeroWaveBackground from './HeroWaveBackground.js';
 
 const IndexSections = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const sectionId = location.hash.replace('#', '');
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <>
 
@@ -19,19 +32,19 @@ const IndexSections = () => {
       <Menu />
 
       <section className="sliderSec padSec overHide pb-0" id='top'>
-        {/* <div className="ParticleCanvas"><ParticleCanvas /></div> */}
-        <div className='hero-wrapper'>
-          <HeroWaveBackground />
-          {/* <GoldenTrailCanvas /> */}
-          <div className="container p-0 mt-md-5 mt-lg-0 ">
-            <div className="row align-items-center gy-5">
-              <HeroSection />
+        <div className='hero_container'>
+          <div className='hero-wrapper'>
+            <HeroWaveBackground />
+            {/* <GoldenTrailCanvas /> */}
+            <div className="container p-0 mt-md-5 mt-lg-0 ">
+              <div className="row align-items-center gy-5">
+                <HeroSection />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="maquee aniSec">
-          <div className='ani'><div className='aniIn'>Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span></div></div>
-
+          <div className="maquee aniSec">
+            <div className='ani'><div className='aniIn'>Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span></div></div>
+          </div>
         </div>
       </section>
 
@@ -41,9 +54,7 @@ const IndexSections = () => {
           <div className="container">
             {/* <div className="common_outline_btn btn_fit_width mx-auto mb-3">About MEDCOIN</div> */}
             <h2 className="h2mY">What is <span className='gold_color_text'>MEDCOIN.AI</span></h2>
-            <p className='subdecription'>MEDCOIN.AI is a smart health platform that connects multiple specialties in a unified system.</p>
-            <p className='subdecription'>Using artificial intelligence and quantum computing, it enables 24/7 consultations via high-performance humanized avatars, offering integrated diagnostics, personalized care paths, and medical support with an unmatched level of accessibility and empathy.</p>
-            <p className='subdecription'>It's more than technology — it's a new way of caring for life.</p>
+            <p className='subdecription'>MEDCOIN.AI is a blockchain-based healthcare ecosystem and telemedicine platform powered by artificial intelligence, designed to connect patients and healthcare professionals in a more accessible and intelligent way.</p>
             <div className="mFeatures">
               <div className="row g-4">
                 <div className="col-md-4">
@@ -218,7 +229,7 @@ const IndexSections = () => {
           <div className="container">
             <h2 className="h2mY">Token <span className='gold_color_text'>Sale</span></h2>
 
-            <div className="row justify-content-center">
+            <div className="row justify-content-center align-items-center">
               <div className="col-md-5">
                 <div className="brandSS">
                   <div className="brandSSimg">
@@ -230,20 +241,20 @@ const IndexSections = () => {
                 </div>
               </div>
               <div className="col-md-5">
-                <div className="whyContent mt-md-4">
+                {/* <div className="whyContent mt-md-4">
                   <div className="d-flex align-items-start mb-2">
                     <img className="img-fluid" src="./images/start.svg" />
                     <p className="mb-0">Tokens released at TGE</p>
                   </div>
-                  {/*<div className="d-flex align-items-start mb-2">
-                <img className="img-fluid" src="./images/start.svg" />
-                <p className="mb-0">Purchase limits per wallet (to be defined)</p>
-              </div>*/}
+                  <div className="d-flex align-items-start mb-2">
+                    <img className="img-fluid" src="./images/start.svg" />
+                    <p className="mb-0">Purchase limits per wallet (to be defined)</p>
+                  </div>
                   <div className="d-flex align-items-start mb-2">
                     <img className="img-fluid" src="./images/start.svg" />
                     <p className="mb-0">Limited-time offer or while supplies last</p>
                   </div>
-                </div>
+                </div> */}
                 <div className="tokenInfo">
                   <div className="d-flex align-items-start justify-content-between">
                     <span className="text-start"><b>Token name:</b></span>
@@ -269,7 +280,7 @@ const IndexSections = () => {
                 <span className="text-start"><b>Token Holding Limit:</b></span>
                 <span className="text-end">20,000,000 MEDC</span>
               </div>*/}
-                  <div className="d-flex align-items-start justify-content-between">
+                  {/* <div className="d-flex align-items-start justify-content-between">
                     <span className="text-start"><b>Token for Pre-sale:</b></span>
                     <span className="text-end">250,000,000 MEDC</span>
                   </div>
@@ -296,7 +307,7 @@ const IndexSections = () => {
                   <div className="d-flex align-items-start justify-content-between">
                     <span className="text-start"><b>Max Purchase Per Wallet:</b></span>
                     <span className="text-end">$10,000.00</span>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/*<div className="tokenInfoBottom text-start ">
@@ -342,7 +353,7 @@ const IndexSections = () => {
 
 
 
-      <Footer />
+        <Footer />
       </div>
     </>
   );

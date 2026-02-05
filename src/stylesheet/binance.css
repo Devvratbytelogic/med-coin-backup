@@ -1,0 +1,98 @@
+/* BinanceHero component styles */
+
+.powered_by {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	position: relative;
+	z-index: 1;
+	margin-bottom: 10px;
+	width: fit-content;
+	margin-left: -20px;
+}
+
+.powered_by_img {
+	width: 40px;
+	height: 40px;
+}
+
+.powered_by_with_particles .powered_by_img,
+.powered_by_with_particles .powered_by_content {
+	position: relative;
+	z-index: 1;
+}
+
+.powered_by_content {
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+}
+
+.powered_by_content p {
+	margin-bottom: 0;
+}
+
+.powered_by_content .powered_by_text,
+.powered_by_content .powered_by_smart_name {
+	font-size: 18px;
+	line-height: normal;
+}
+
+.powered_by_content .powered_by_name {
+	font-size: 20px;
+	color: var(--text-color);
+	font-weight: 600;
+	line-height: normal;
+}
+
+.powered_by_img img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	filter: brightness(0) saturate(100%) invert(74%) sepia(38%) saturate(520%) hue-rotate(6deg) brightness(95%) contrast(92%);
+}
+
+/* Binance hero particle animation */
+.powered_by_with_particles {
+	padding: 16px 20px;
+	overflow: visible;
+	min-width: 220px;
+	min-height: 72px;
+	background: transparent;
+}
+
+.powered_by_particle_canvas {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	border-radius: 36px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+	.powered_by {
+		margin-left: 0;
+	}
+	.powered_by_with_particles {
+		min-width: 180px;
+		min-height: 60px;
+		padding: 12px 16px;
+	}
+}
+
+@media (max-width: 576px) {
+	.powered_by_content .powered_by_name {
+		font-size: 14px !important;
+	}
+	.powered_by_img {
+		width: 32px;
+		height: 32px;
+	}
+	.powered_by_with_particles {
+		min-width: 150px;
+		min-height: 52px;
+		padding: 10px 14px;
+	}
+}
