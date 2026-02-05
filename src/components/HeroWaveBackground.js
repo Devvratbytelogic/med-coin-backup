@@ -12,7 +12,10 @@ const HeroWaveBackground = () => {
   const FOCAL_LENGTH = 900;
   const WAVE_STRENGTH = 60;
   const SPEED = 0.05;
+  const SPEED_MOBILE = 0.02; /* Slower on mobile for better performance */
   const HORIZON_Y = 0.68;
+
+  const getSpeed = () => (window.innerWidth <= 768 ? SPEED_MOBILE : SPEED);
 
   const getGridConfig = () => {
     const isMobile = window.innerWidth <= 768;
@@ -103,7 +106,7 @@ const HeroWaveBackground = () => {
       }
 
       ctx.globalAlpha = 1;
-      time += SPEED;
+      time += getSpeed();
       animationRef.current = requestAnimationFrame(animate);
     };
 
