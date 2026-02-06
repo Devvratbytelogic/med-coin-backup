@@ -327,7 +327,7 @@ const IndexSections = () => {
               <p>Cryptoland will be released on the basis of Ethereum platform and fully comply with ERC20* standard.</p>
               <p>Support of this standard guarantees the compatibility of the token with third-party services (wallets, exchanges, listings, etc.), and provides easy integration.</p>
             </div>*/}
-                <div className="d-flex">
+                <div className="d-flex justify-content-center">
                   <a href='https://pancakeswap.finance/swap?outputCurrency=0xAAfA7Ef15233B80E0B99E125228f30220450784e' className="common_btn d-flex gap-2 align-items-center mt-4 w-auto" target='_blank'><span className="d-inline-block w-auto">Buy Token</span></a>
                 </div>
               </div>
