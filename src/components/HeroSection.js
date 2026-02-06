@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import BinanceHero from "./BinanceHero";
+import { GiCheckMark } from "react-icons/gi";
+
 
 export default function HeroSection() {
   const fullAddress = "0xAAfA7Ef15233B80E0B99E125228f30220450784e";
@@ -25,22 +27,40 @@ export default function HeroSection() {
               <BinanceHero />
             </div>
             <p className="hero_subtitle gold_color_text">AI-Powered Healthcare on Blockchain.</p>
+            <p className="coinstore_badge_text d-flex align-items-center gold_color_text">
+              Officially listed on<span className="fw-bold">&nbsp;CoinStore&nbsp;</span><svg width="0" height="0">
+                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#DDDFC2" />
+                  <stop offset="100%" stopColor="#D49A51" />
+                </linearGradient>
+              </svg>
+
+              <GiCheckMark style={{ fill: "url(#goldGradient)" }} />
+
+              {/* <i className="fa-solid fa-circle-check coinstore_verified" aria-hidden="true"></i> */}
+            </p>
             {/* <h1 className="pe-4">Best selling ICO future of trading <span className="gold_color_text">MEDCOIN</span></h1>
             <p>Experience the future of business with intelligent, scalable <br /> automation solutions tailored to your needs</p> */}
             <div className="hero_buttons mt-2 d-flex flex-wrap gap-2">
-              <Link
-                to={`https://pancakeswap.finance/swap?outputCurrency=0xAAfA7Ef15233B80E0B99E125228f30220450784e`}
+              <a
+                href="https://www.coinstore.com"
                 target="_blank"
+                rel="noreferrer"
               >
-                <button className="common_outline_btn position-relative z-index-1">Buy on CoinStore</button>
-              </Link>
-              <Link
-                to={`/how-to-buy`}
+                <button className="common_outline_btn position-relative z-index-1 d-flex align-items-center gap-2">
+                  <img src="/images/final/coin-store.png" alt="" className="coinstore-btn-logo" />
+                  Buy on CoinStore
+                </button>
+              </a>
+              <a
+                href={`https://pancakeswap.finance/swap?outputCurrency=0xAAfA7Ef15233B80E0B99E125228f30220450784e`}
+                target="_blank"
+                rel="noreferrer"
               >
-                <button className="common_outline_btn position-relative z-index-1">How to buy?</button>
-              </Link>
+                <button className="common_outline_btn position-relative z-index-1 d-flex align-items-center gap-2">Buy on PancakeSwap</button>
+              </a>
             </div>
-            <div className="coinstore_badge d-flex align-items-center gap-2 mt-3">
+            {/* <div className="coinstore_badge d-flex align-items-center gap-2 mt-3">
               <a href="https://www.coinstore.com" target="_blank">
                 <div className="coinstore_badge_inner d-flex align-items-center gap-2">
                   <img src="/images/final/coin-store.png" alt="CoinStore" className="coinstore-logo" />
@@ -50,7 +70,7 @@ export default function HeroSection() {
                   <i className="fa-solid fa-circle-check coinstore_verified" aria-hidden="true"></i>
                 </div>
               </a>
-            </div>
+            </div> */}
             <img src="./images/pancake.svg" className="img-fluid pancake_img" alt="" />
 
           </div>

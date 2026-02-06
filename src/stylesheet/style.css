@@ -99,7 +99,7 @@ body:before {
 }*/
 
 .navbar-brand img {
-	height: 80px;
+	height: 100px;
 }
 
 .navbar-toggler {
@@ -146,7 +146,7 @@ header {
 }
 
 .sliderSec .hero_container {
-	padding-top: 50px;
+	padding-top: 80px;
 }
 
 .sliderSec {
@@ -1146,13 +1146,13 @@ footer p {
 	}
 
 	.navbar-brand img {
-		height: 60px;
+		height: 80px;
 	}
 }
 
 @media (max-width: 350px) {
 	.navbar-brand img {
-		height: 60px;
+		height: 80px;
 	}
 }
 
@@ -3198,6 +3198,12 @@ affilateBg .aniIn {}
 	object-fit: contain;
 }
 
+.hero_buttons .coinstore-btn-logo {
+	height: 24px;
+	width: auto;
+	object-fit: contain;
+}
+
 .coinstore_badge .colored_text {
 	font-size: 0.9rem;
 	font-weight: 500;
@@ -3549,7 +3555,7 @@ affilateBg .aniIn {}
 		min-height: 250px;
 	}
 	.hero_subtitle {
-		font-size: 18px;
+		font-size: 24px;
 	}
 	.pancake_img {
 		max-width: 80px;
@@ -3611,6 +3617,7 @@ affilateBg .aniIn {}
 	gap: 8px;
 	/* margin-top: 10px; */
 	padding-top: 10px;
+	width: 100%;
 }
 
 .why_medcoin_features span {
@@ -3857,14 +3864,11 @@ affilateBg .aniIn {}
 		margin-right: auto;
 	}
 
-	.why_medcoin_features {
-		justify-content: center;
-	}
-
 	.why_medcoin_card_progress {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		width: 100%;
 	}
 
 	.why_medcoin_labels {

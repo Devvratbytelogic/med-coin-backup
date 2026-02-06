@@ -47,8 +47,11 @@ const Menu = () => {
         <div className="container">
 
           <nav className="navbar navbar-expand-lg navbar-dark flex-nowrap justify-content-between">
-            <a className="navbar-brand" href="./">
+            {/* <a className="navbar-brand" href="./">
               <img className="logo desktop" src="./images/final/logo.png" alt="" />
+            </a> */}
+            <a className="navbar-brand" href="./">
+              <img className="logo desktop" src="images/logo.svg" alt="MEDCOIN.AI" />
             </a>
             <div className="d-flex gap-2 justify-content-center align-items-center">
               <button onClick={handleToggleMenu} className={`navbar-toggler collapsed ${menuOpen ? "show1" : ""}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">

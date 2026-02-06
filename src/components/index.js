@@ -43,7 +43,19 @@ const IndexSections = () => {
             </div>
           </div>
           <div className="maquee aniSec">
-            <div className='ani'><div className='aniIn'>Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span> <span className="px-5">  Pre-sale Live | Limited Time | TGE Coming Soon | Buy Now Real Utility Token | Telemedicine Platform | AI + Blockchain</span></div></div>
+            <div className='ani'>
+              <div className='aniIn'>
+                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com' target='_blank'>Buy on CoinStore</a></span>
+                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com' target='_blank'>Buy on CoinStore</a></span>
+                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com' target='_blank'>Buy on CoinStore</a></span>
+                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com' target='_blank'>Buy on CoinStore</a></span>
+                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com' target='_blank'>Buy on CoinStore</a></span>
+                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com' target='_blank'>Buy on CoinStore</a></span>
+                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com' target='_blank'>Buy on CoinStore</a></span>
+                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com' target='_blank'>Buy on CoinStore</a></span>
+                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com' target='_blank'>Buy on CoinStore</a></span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
