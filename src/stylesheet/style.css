@@ -1052,11 +1052,6 @@ footer p {
 		padding: 20px 60px !important;
 	}
 
-	.pancake_img {
-		top: 0% !important;
-		/* transform: translateY(-50%); */
-	}
-
 	.common_top_space {
 		padding-top: 100px !important;
 	}
@@ -3519,11 +3514,8 @@ affilateBg .aniIn {}
 	}
 
 	.pancake_img {
-		position: relative;
-		right: auto;
-		top: auto;
-		margin-top: 1rem;
-		max-width: 120px;
+		bottom: -40px;
+		top: unset;
 	}
 }
 
@@ -3534,14 +3526,17 @@ affilateBg .aniIn {}
 		min-width: 180px;
 		min-height: 180px;
 	}
+
 	.hero_subtitle {
 		font-size: 20px;
 		text-align: center;
 	}
+
 	.hero_buttons .common_outline_btn {
 		width: 100%;
 		justify-content: center;
 	}
+
 	.pancake_img {
 		max-width: 100px;
 	}
@@ -3554,9 +3549,11 @@ affilateBg .aniIn {}
 		min-width: 250px;
 		min-height: 250px;
 	}
+
 	.hero_subtitle {
 		font-size: 24px;
 	}
+
 	.pancake_img {
 		max-width: 80px;
 	}
@@ -3806,7 +3803,8 @@ affilateBg .aniIn {}
 		display: flex;
 		justify-content: center;
 	}
-	.hero_content{
+
+	.hero_content {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -4126,6 +4124,7 @@ affilateBg .aniIn {}
 	height: 100%;
 	z-index: -1;
 }
+
 /* .footer_email{
 	white-space: ;
 } */
