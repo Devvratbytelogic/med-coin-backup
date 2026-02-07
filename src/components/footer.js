@@ -38,7 +38,7 @@ const Menu = () => {
               <div className="snF">
                 <h4 className="gold_color_text">Help</h4>
                 <ul>
-                  <li><a href="/medcoin-whitepaper-new.pdf" target='_blank'>Whitepaper</a></li>
+                  <li><a href="/final-whitepaper.pdf" target='_blank'>Whitepaper</a></li>
                   {/* <li><a href="/faq">FAQ</a></li>
                   <li><a href="">Forum</a></li> */}
                 </ul>

@@ -71,7 +71,7 @@ export default function HeroSection() {
                 </div>
               </a>
             </div> */}
-            <img src="./images/pancake.svg" className="img-fluid pancake_img" alt="" />
+            {/* <img src="./images/pancake.svg" className="img-fluid pancake_img" alt="" /> */}
 
           </div>
         </div>
