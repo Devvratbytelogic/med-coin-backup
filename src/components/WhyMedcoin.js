@@ -105,7 +105,7 @@ const WhyMedcoin = () => {
                                 ))}
                             </div>
                             <div className='why_medcoin_card_content'>
-                                <h4 className="why_medcoin_stat">99.99%</h4>
+                                <h4 className="why_medcoin_stat">Live & Expanding</h4>
                                 <p>An expanding AI + blockchain healthcare ecosystem built for the future.</p>
                             </div>
                         </div>

@@ -1731,6 +1731,113 @@ footer p {
 	font-family: "Inter", sans-serif;
 }
 
+/* The Role of the MEDCOIN Token section */
+.token-role-section {
+	position: relative;
+}
+
+.token-role-section .token-role-card {
+	border-radius: 24px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	background: rgba(255, 255, 255, 0.03);
+	backdrop-filter: blur(6px);
+	padding: 32px 36px;
+	margin-top: 1.5rem;
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+.token-role-section .token-role-card_content {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.token-role-section .token-role-intro,
+.token-role-section .token-role-outro {
+	font-size: 16px;
+	font-weight: 400;
+	/* color: var(--para-color); */
+	line-height: 1.6;
+	margin: 0;
+	font-family: "Inter", sans-serif;
+}
+
+.token-role-section .token-role-list-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px 24px;
+	padding: 1rem 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.token-role-section .token-role-item {
+	font-size: 15px;
+	font-weight: 400;
+	/* color: var(--para-color); */
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-family: "Inter", sans-serif;
+}
+
+.token-role-section .token-role-dot {
+	background: #D49A51 !important;
+	flex-shrink: 0;
+	box-shadow: 0 0 6px rgba(212, 154, 81, 0.5);
+}
+
+.token-role-section .token-role-cta {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin: 0.5rem auto;
+	/* align-self: ; */
+
+	
+}
+
+@media (max-width: 768px) {
+	.token-role-section .token-role-card {
+		padding: 24px 20px;
+		border-radius: 18px;
+	}
+	.token-role-section .token-role-intro,
+	.token-role-section .token-role-outro {
+		font-size: 15px;
+	}
+	.token-role-section .token-role-item {
+		font-size: 14px;
+	}
+	.token-role-section .token-role-cta {
+		align-self: center;
+		width: 100%;
+	}
+}
+
+@media (max-width: 576px) {
+	.token-role-section .token-role-card {
+		padding: 20px 16px;
+		border-radius: 16px;
+		margin-top: 1rem;
+	}
+	.token-role-section .token-role-intro,
+	.token-role-section .token-role-outro {
+		font-size: 14px;
+	}
+	.token-role-section .token-role-list-wrapper {
+		gap: 8px 16px;
+		padding: 0.75rem 0;
+	}
+	.token-role-section .token-role-item {
+		font-size: 13px;
+	}
+}
+
 .snFeature {
 	margin-top: 15px;
 	/* background: #0F0F0FE5; */

@@ -9,6 +9,7 @@ import HeroSection from './HeroSection.js';
 import Roadmap from './Roadmap.js';
 import { FlexiblePaymentsSVG, GlobalHealthcareSVG, MedicalRevolutionSVG, RealUtilitySVG, TechIntegrationSVG, TelemedicinePlatformSVG } from './AllSVG.js';
 import WhyMedcoin from './WhyMedcoin.js';
+import TokenRoleSection from './TokenRoleSection.js';
 import HowItWorks from './HowItWorks.js';
 import HeroWaveBackground from './HeroWaveBackground.js';
 
@@ -135,6 +136,7 @@ const IndexSections = () => {
         </section>
 
         <WhyMedcoin />
+        <TokenRoleSection />
         <HowItWorks />
 
         <section className="text-center padSec pt-0" id='tokenomics'>
