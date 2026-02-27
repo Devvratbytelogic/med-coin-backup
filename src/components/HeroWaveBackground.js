@@ -7,22 +7,22 @@ const HeroWaveBackground = () => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
 
-  /* 🔧 Tuned constants - reduced grid on mobile to prevent hang */
   const COLOR = '#f5c542';
   const FOCAL_LENGTH = 900;
   const WAVE_STRENGTH = 60;
   const SPEED = 0.05;
-  const SPEED_MOBILE = 0.02; /* Slower on mobile for better performance */
+  const SPEED_MOBILE = 0.02;
   const HORIZON_Y = 0.68;
+  const ALPHA_BUCKETS = 12; /* Batch dots by alpha to reduce ctx state changes */
 
   const getSpeed = () => (window.innerWidth <= 768 ? SPEED_MOBILE : SPEED);
 
   const getGridConfig = () => {
     const isMobile = window.innerWidth <= 768;
     if (isMobile) {
-      return { DOT_GAP: 35, COLS: 100, ROWS: 100 };
+      return { DOT_GAP: 45, COLS: 55, ROWS: 55 }; /* ~3k dots vs 10k */
     }
-    return { DOT_GAP: 35, COLS: 200, ROWS: 300 };
+    return { DOT_GAP: 42, COLS: 100, ROWS: 110 }; /* ~11k dots vs 60k */
   };
 
   useEffect(() => {
@@ -37,13 +37,13 @@ const HeroWaveBackground = () => {
     let dots = [];
     let time = 0;
     let gridConfig = getGridConfig();
+    let isVisible = true;
 
     const initGrid = () => {
       gridConfig = getGridConfig();
       const { DOT_GAP, COLS, ROWS } = gridConfig;
       dots = [];
       const startX = -(COLS * DOT_GAP) / 2;
-      const startZ = 0;
 
       for (let z = 0; z < ROWS; z++) {
         for (let x = 0; x < COLS; x++) {
@@ -70,7 +70,11 @@ const HeroWaveBackground = () => {
     };
 
     const animate = () => {
-      /* Background */
+      if (!isVisible) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
       ctx.fillStyle = '#030712';
       ctx.fillRect(0, 0, width, height);
 
@@ -79,29 +83,40 @@ const HeroWaveBackground = () => {
       const { ROWS, DOT_GAP } = gridConfig;
       const maxZ = ROWS * DOT_GAP;
 
+      /* Pre-compute and bucket dots by alpha to minimize ctx state changes */
+      const buckets = Array.from({ length: ALPHA_BUCKETS }, () => []);
       for (const dot of dots) {
         const wave =
           Math.sin(dot.x * 0.004 + time) * WAVE_STRENGTH +
           Math.cos(dot.z * 0.003 + time * 0.8) * WAVE_STRENGTH;
 
         const y = dot.baseY + wave;
-
         const scale = FOCAL_LENGTH / (FOCAL_LENGTH + dot.z);
         const sx = cx + dot.x * scale;
         const sy = cy + y * scale;
 
         if (sy > height + 60 || sx < -60 || sx > width + 60) continue;
 
-        /* Fog / depth fade */
         const depthFade = 1 - dot.z / maxZ;
         const alpha = Math.max(0.08, depthFade * scale * 1.4);
-
         const size = Math.max(0.4, 2.6 * scale);
+        const bucketIdx = Math.min(
+          Math.floor(alpha * (ALPHA_BUCKETS - 1)),
+          ALPHA_BUCKETS - 1
+        );
+        buckets[bucketIdx].push({ sx, sy, size, alpha });
+      }
 
+      ctx.fillStyle = COLOR;
+      for (const bucket of buckets) {
+        if (bucket.length === 0) continue;
+        const alpha = bucket[0].alpha;
         ctx.globalAlpha = alpha;
-        ctx.fillStyle = COLOR;
         ctx.beginPath();
-        ctx.arc(sx, sy, size, 0, Math.PI * 2);
+        for (const { sx, sy, size } of bucket) {
+          ctx.moveTo(sx + size, sy);
+          ctx.arc(sx, sy, size, 0, Math.PI * 2);
+        }
         ctx.fill();
       }
 
@@ -110,12 +125,18 @@ const HeroWaveBackground = () => {
       animationRef.current = requestAnimationFrame(animate);
     };
 
+    const onVisibilityChange = () => {
+      isVisible = document.visibilityState === 'visible';
+    };
+
     resize();
     window.addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', onVisibilityChange);
     animate();
 
     return () => {
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
       cancelAnimationFrame(animationRef.current);
     };
   }, []);

@@ -4230,6 +4230,7 @@ affilateBg .aniIn {}
 	width: 100%;
 	height: 100%;
 	z-index: -1;
+	contain: layout style paint;
 }
 
 /* .footer_email{
