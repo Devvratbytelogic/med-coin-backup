@@ -26,31 +26,22 @@ const WhyMedcoin = () => {
                         </div>
                     </div>
 
-                    {/* Card 2: Fast, Borderless Healthcare Payments */}
+                    {/* Card 2: Blockchain-Secured Healthcare Payments */}
                     <div className="col-12 col-md-6 col-lg-4">
                         <div className="why_medcoin_card">
                             <div className='why_medcoin_card_content'>
-                                <h4>Fast, Borderless Healthcare Payments</h4>
-                                <p>Instant, borderless payments across patients, doctors, labs, and healthcare services.</p>
-                            </div>
-                            <div className='why_medcoin_card_progress'>
-                                <div className="why_medcoin_labels">
-                                    <span>B2B & B2C</span>
-                                    <span>SECURE</span>
-                                </div>
-                                <div className="why_medcoin_progress">
-                                    <div className="why_medcoin_progress_fill" style={{ width: '92%' }} />
-                                </div>
+                                <h4>Blockchain-Secured Healthcare Payments</h4>
+                                <p>Transparent, secure and traceable healthcare transactions powered by blockchain infrastructure.</p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Card 3: Direct Patient - Doctor Connectivity */}
+                    {/* Card 3: Connecting Patients and Doctors */}
                     <div className="col-12 col-md-6 col-lg-4">
                         <div className="why_medcoin_card">
                             <div className='why_medcoin_card_content'>
-                                <h4>Direct Patient - Doctor Connectivity</h4>
-                                <p>Direct patient-doctor connection with no intermediaries or friction.</p>
+                                <h4>Connecting Patients and Doctors</h4>
+                                <p>AI-powered interaction designed to make healthcare more accessible and intelligent.</p>
                             </div>
                             <div className="why_medcoin_barchart">
                                 {barHeights.map((h, i) => (
