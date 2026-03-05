@@ -43,7 +43,7 @@ export default function HeroSection() {
             <p>Experience the future of business with intelligent, scalable <br /> automation solutions tailored to your needs</p> */}
             <div className="hero_buttons mt-2 d-flex flex-wrap gap-2">
               <a
-                href="https://www.coinstore.com"
+                href="https://www.coinstore.com/spot/MEDCUSDT"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -61,7 +61,7 @@ export default function HeroSection() {
               </a>
             </div>
             {/* <div className="coinstore_badge d-flex align-items-center gap-2 mt-3">
-              <a href="https://www.coinstore.com" target="_blank">
+              <a href="https://www.coinstore.com/spot/MEDCUSDT" target="_blank" rel="noreferrer">
                 <div className="coinstore_badge_inner d-flex align-items-center gap-2">
                   <img src="/images/final/coin-store.png" alt="CoinStore" className="coinstore-logo" />
                   <span className="colored_text">

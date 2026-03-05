@@ -64,12 +64,12 @@ const HowItWorks = () => {
             {/* CARDS */}
             <div className="g-4 how-it-works">
               <div className="how-it-works-card">
-                <h4>Buy on PancakeSwap</h4>
-                <p>Buy Your Favorite Crypto Tokens Quickly Using PancakeSwap</p>
+                <h4>Buy on CoinStore (CEX)</h4>
+                <p>MEDC/USDT is now live on CoinStore — trade on a leading centralized exchange</p>
               </div>
               <div className="how-it-works-card">
-                <h4>Live on DEXs</h4>
-                <p>Token Trading Is Live on All Leading DEX Platforms</p>
+                <h4>Buy on PancakeSwap (DEX)</h4>
+                <p>MEDC is also available on PancakeSwap and other DEX platforms</p>
               </div>
               <div className="how-it-works-card">
                 <h4>Use & Benefit</h4>
@@ -79,8 +79,9 @@ const HowItWorks = () => {
           </div>
 
 
-          <div className="text-center d-flex justify-content-center">
-            <a href='https://pancakeswap.finance/swap?outputCurrency=0xAAfA7Ef15233B80E0B99E125228f30220450784e' className='common_outline_btn' target='_blank' rel='noreferrer'>GET YOUR TOKEN NOW</a>
+          <div className="text-center d-flex flex-wrap justify-content-center gap-2">
+            <a href='https://www.coinstore.com/spot/MEDCUSDT' className='common_outline_btn' target='_blank' rel='noreferrer'>Buy on CoinStore</a>
+            <a href='https://pancakeswap.finance/swap?outputCurrency=0xAAfA7Ef15233B80E0B99E125228f30220450784e' className='common_outline_btn' target='_blank' rel='noreferrer'>Buy on PancakeSwap</a>
           </div>
         </div>
       </div>
