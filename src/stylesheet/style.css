@@ -2182,6 +2182,11 @@ footer p {
 	box-shadow: 0 0 12px rgba(212, 154, 81, 0.6);
 }
 
+.roadmap-node.completed {
+	background: #D49A51;
+	border-color: #D49A51;
+}
+
 .roadmap-card {
 	flex: 1;
 	max-width: 380px;
