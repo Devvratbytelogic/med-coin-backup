@@ -75,11 +75,11 @@ const Menu = () => {
           href={COINSTORE_URL}
           target="_blank"
           rel="noreferrer"
-          className="menu-header-buy-row"
+          className="menu-header-buy-row coinstore-icon"
           onClick={handleCloseMenu}
         >
           <img src="/images/final/coin-store.png" alt="CoinStore" />
-          <span className="menu-header-coinstore-name">Coinstore</span>
+          {/* <span className="menu-header-coinstore-name">Coinstore</span> */}
           <span>Buy on CoinStore</span>
         </a>
         <div className="menu-header-divider" />
@@ -142,10 +142,10 @@ const Menu = () => {
                 href={COINSTORE_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="menu-header-buy-row"
+                className="menu-header-buy-row coinstore-icon"
               >
                 <img src="/images/final/coin-store.png" alt="CoinStore" />
-                <span className="menu-header-coinstore-name">Coinstore</span>
+                {/* <span className="menu-header-coinstore-name">Coinstore</span> */}
                 <span>Buy on CoinStore</span>
               </a>
               <div className="menu-header-divider" />

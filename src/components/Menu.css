@@ -1,5 +1,5 @@
 .menu-header {
-	position: absolute;
+	position: sticky;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -41,7 +41,7 @@
 	align-items: stretch;
 	gap: 10px;
 	flex: 1;
-	justify-content: center;
+	justify-content: end;
 	min-width: 0;
 }
 
@@ -84,6 +84,9 @@
 	flex-shrink: 0;
 }
 
+.menu-header-buy-row.coinstore-icon img {
+	width: 80px; 
+}
 .menu-header-coinstore-name {
 	color: #e84393;
 	font-weight: 500;
