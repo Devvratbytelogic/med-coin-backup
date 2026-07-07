@@ -50,7 +50,7 @@ export default function HomeHeroSection() {
                                     realizado por profissionais qualificados.
                                 </p>
 
-                                <a href="#features" className="home-hero-cta-btn">
+                                <a href="https://wa.me/5511914963086" className="home-hero-cta-btn">
                                     <FaStethoscope />
                                     <span>Iniciar Triagem</span>
                                 </a>
