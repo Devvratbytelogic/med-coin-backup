@@ -9,6 +9,7 @@ import {
   FaShieldAlt,
   FaUserMd,
 } from 'react-icons/fa'
+import './HomeHeroServicesSection.css'
 
 const features = [
   {
@@ -44,20 +45,18 @@ const trustItems = [
 
 export default function HomeHeroServicesSection() {
   return (
-    <>
+    <div className="home-hero-services">
       <div className="home-hero-features">
-        <div className="row g-0">
+        <div className="home-hero-features-grid">
           {features.map((feature) => {
             const Icon = feature.icon
             return (
-              <div className="col-12 col-md-6 col-lg-3" key={feature.title}>
-                <div className="home-hero-feature-item">
-                  <div className="home-hero-feature-icon">
-                    <Icon />
-                  </div>
-                  <h4>{feature.title}</h4>
-                  <p>{feature.description}</p>
+              <div className="home-hero-feature-item" key={feature.title}>
+                <div className="home-hero-feature-icon">
+                  <Icon />
                 </div>
+                <h4>{feature.title}</h4>
+                <p>{feature.description}</p>
               </div>
             )
           })}
@@ -65,20 +64,18 @@ export default function HomeHeroServicesSection() {
       </div>
 
       <div className="home-hero-trust">
-        <div className="row g-0">
+        <div className="home-hero-trust-grid">
           {trustItems.map((item) => {
             const Icon = item.icon
             return (
-              <div className="col-12 col-sm-6 col-lg-3" key={item.text}>
-                <div className="home-hero-trust-item">
-                  <Icon className="home-hero-trust-icon" />
-                  <span>{item.text}</span>
-                </div>
+              <div className="home-hero-trust-item" key={item.text}>
+                <Icon className="home-hero-trust-icon" />
+                <span>{item.text}</span>
               </div>
             )
           })}
         </div>
       </div>
-    </>
+    </div>
   )
 }

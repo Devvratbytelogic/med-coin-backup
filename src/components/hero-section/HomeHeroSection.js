@@ -9,12 +9,13 @@ export default function HomeHeroSection() {
         <section className="home-hero-section" id="top">
             <div className="home-hero-announcement">
                 <p className="mb-0">
-                    AI-Powered Telemedicine Platform |{' '}
+                    <span>AI-Powered Telemedicine Platform</span>
+                    <span className="home-hero-announcement-separator" aria-hidden="true">|</span>
                     <a
                         href="https://www.coinstore.com/spot/MEDCUSDT"
                         target="_blank"
                         rel="noreferrer"
-                        className="gold_color_text"
+                        className="home-hero-announcement-link"
                     >
                         Buy on CoinStore
                     </a>
