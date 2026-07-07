@@ -1,9 +1,8 @@
-/* Home Hero Section */
+/* Home Hero Section - desktop defaults unchanged */
 .home-hero-section {
 	position: relative;
 	padding: 100px 0 32px;
 	background: #02050e;
-	overflow-x: clip;
 }
 
 .home-hero-announcement {
@@ -36,6 +35,7 @@
 .home-hero-main {
 	padding: 32px 28px;
 	margin-bottom: 16px;
+	overflow: visible;
 }
 
 .home-hero-circuit-bg {
@@ -65,28 +65,8 @@
 }
 
 .home-hero-brand-logo {
-	width: clamp(160px, 28vw, 250px);
-	max-width: 100%;
-	height: auto;
+	width: 250px;
 	object-fit: contain;
-}
-
-.home-hero-brand-text {
-	display: flex;
-	flex-direction: column;
-	line-height: 1.1;
-}
-
-.home-hero-brand-medcoin {
-	font-size: 22px;
-	font-weight: 700;
-	letter-spacing: 0.04em;
-}
-
-.home-hero-brand-health {
-	font-size: 22px;
-	font-weight: 700;
-	letter-spacing: 0.04em;
 }
 
 .home-hero-title {
@@ -100,7 +80,7 @@
 .home-hero-description {
 	margin-bottom: 28px;
 	max-width: 520px;
-	font-size: clamp(14px, 2vw, 15px);
+	font-size: 15px;
 	line-height: 1.6;
 	color: rgba(255, 255, 255, 0.78);
 }
@@ -126,57 +106,53 @@
 	color: #0f172a;
 }
 
-.home-hero-visual {
+/* .home-hero-visual {
 	position: relative;
 	z-index: 1;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-top: 8px;
-}
+	min-height: 320px;
+} */
 
 .home-hero-doctor-img {
 	width: 100%;
-	max-width: min(340px, 92%);
-	height: auto;
+	max-width: 520px;
+	height: 100%;
+	position: absolute;
+	bottom: -2px;
+	right: 12%;
 	display: block;
 	object-fit: contain;
-	object-position: bottom center;
+	z-index: 50;
 }
 
 .home-hero-info-card {
-	width: 100%;
-	max-width: 100%;
-	padding: 14px 16px;
-	border-radius: 16px;
+	position: absolute;
+	top: 5%;
+	right: 2.5%;
+	width: 148px;
+	max-width: 148px;
+	padding: 20px 14px 18px;
+	border-radius: 18px;
 	border: 1px solid rgba(255, 255, 255, 0.14);
-	background: rgba(15, 23, 42, 0.72);
-	backdrop-filter: blur(6px);
-	display: flex;
-	align-items: center;
-	gap: 14px;
-	text-align: left;
+	text-align: center;
 }
 
 .home-hero-info-icon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-bottom: 0;
-	flex-shrink: 0;
+	margin-bottom: 14px;
 	color: #d49a51;
 }
 
 .home-hero-info-icon-svg {
-	width: 48px;
-	height: 48px;
+	width: 56px;
+	height: 56px;
 	display: block;
 }
 
 .home-hero-info-text {
-	font-size: 13px;
-	line-height: 1.45;
+	font-size: 14px;
+	line-height: 1.35;
 	font-weight: 500;
 	color: rgba(255, 255, 255, 0.95);
 }
@@ -238,60 +214,6 @@
 }
 
 @media (min-width: 992px) {
-	.home-hero-main {
-		overflow: visible;
-	}
-
-	.home-hero-content {
-		text-align: left;
-	}
-
-	.home-hero-visual {
-		min-height: clamp(320px, 38vw, 420px);
-		flex-direction: row;
-		align-items: flex-end;
-		justify-content: center;
-		gap: 0;
-		padding-top: 0;
-	}
-
-	.home-hero-doctor-img {
-		position: absolute;
-		bottom: -2px;
-		right: clamp(0px, 6vw, 12%);
-		max-width: min(520px, 92%);
-		z-index: 2;
-	}
-
-	.home-hero-info-card {
-		position: absolute;
-		top: 5%;
-		right: clamp(0px, 1.5vw, 2.5%);
-		width: 148px;
-		max-width: 148px;
-		padding: 20px 14px 18px;
-		border-radius: 18px;
-		flex-direction: column;
-		align-items: center;
-		gap: 0;
-		text-align: center;
-		z-index: 3;
-	}
-
-	.home-hero-info-icon {
-		margin-bottom: 14px;
-	}
-
-	.home-hero-info-icon-svg {
-		width: 56px;
-		height: 56px;
-	}
-
-	.home-hero-info-text {
-		font-size: 14px;
-		line-height: 1.35;
-	}
-
 	.home-hero-features .col-lg-3:not(:last-child) .home-hero-feature-item {
 		border-right: 1px solid rgba(255, 255, 255, 0.1);
 	}
@@ -329,13 +251,16 @@
 	}
 }
 
+/* Mobile / tablet only - desktop styles above stay untouched */
 @media (max-width: 991.98px) {
 	.home-hero-section {
 		padding: 88px 0 24px;
+		overflow-x: clip;
 	}
 
 	.home-hero-main {
 		padding: 24px 20px;
+		overflow: hidden;
 	}
 
 	.home-hero-content {
@@ -360,8 +285,51 @@
 	}
 
 	.home-hero-visual {
+		min-height: auto;
 		margin-top: 0;
 		margin-bottom: 8px;
+	}
+
+	.home-hero-doctor-img {
+		position: relative;
+		right: auto;
+		bottom: auto;
+		height: auto;
+		max-width: min(340px, 92%);
+		margin: 0 auto;
+	}
+
+	.home-hero-info-card {
+		position: static;
+		width: 100%;
+		max-width: 100%;
+		/* margin-top: 14px; */
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		text-align: left;
+		padding: 14px 16px;
+		background: rgba(15, 23, 42, 0.72);
+		backdrop-filter: blur(6px);
+	}
+
+	.home-hero-info-icon {
+		margin-bottom: 0;
+		flex-shrink: 0;
+	}
+
+	.home-hero-info-icon-svg {
+		width: 48px;
+		height: 48px;
+	}
+
+	.home-hero-info-text {
+		font-size: 13px;
+		line-height: 1.45;
+	}
+
+	.home-hero-info-text br {
+		display: none;
 	}
 }
 

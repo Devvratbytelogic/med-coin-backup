@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaStethoscope } from 'react-icons/fa'
 import HomeHeroServicesSection from './HomeHeroServicesSection'
+import './HomeHeroSection.css'
 
 
 export default function HomeHeroSection() {
@@ -22,10 +23,8 @@ export default function HomeHeroSection() {
 
             <div className="container">
                 <div className="home-hero-main">
-                    {/* <div className="home-hero-circuit-bg" aria-hidden="true" /> */}
-
                     <div className="row align-items-center g-4">
-                        <div className="col-lg-6">
+                        <div className="col-12 col-lg-6 order-2 order-lg-1">
                             <div className="home-hero-content">
                                 <div className="home-hero-brand">
                                     <img
@@ -52,31 +51,33 @@ export default function HomeHeroSection() {
                             </div>
                         </div>
 
-                        <div className="col-lg-6">
-                            <img
-                                src="./images/final/hero-doctor.png"
-                                alt="Médica da MEDCOIN HEALTH"
-                                className="home-hero-doctor-img"
-                            />
-                            <div className="home-hero-info-card">
-                                <div className="home-hero-info-icon">
-                                    <img
-                                        src="./images/final/doctor-icon.png"
-                                        alt="Médicos"
-                                        className="home-hero-info-icon-svg"
-                                    />
+                        <div className="col-12 col-lg-6 order-1 order-lg-2">
+                            <div className="home-hero-visual">
+                                <img
+                                    src="./images/final/hero-doctor.png"
+                                    alt="Médica da MEDCOIN HEALTH"
+                                    className="home-hero-doctor-img"
+                                />
+                                <div className="home-hero-info-card">
+                                    <div className="home-hero-info-icon">
+                                        <img
+                                            src="./images/final/doctor-icon.png"
+                                            alt="Médicos"
+                                            className="home-hero-info-icon-svg"
+                                        />
+                                    </div>
+                                    <p className="home-hero-info-text mb-0">
+                                        IA e médicos{' '}
+                                        <br />
+                                        trabalhando{' '}
+                                        <br />
+                                        juntos para{' '}
+                                        <br />
+                                        <span className="gold_color_text">cuidar melhor</span>{' '}
+                                        <br />
+                                        <span className="gold_color_text">de você.</span>
+                                    </p>
                                 </div>
-                                <p className="home-hero-info-text mb-0">
-                                    IA e médicos
-                                    <br />
-                                    trabalhando
-                                    <br />
-                                    juntos para
-                                    <br />
-                                    <span className="gold_color_text">cuidar melhor</span>
-                                    <br />
-                                    <span className="gold_color_text">de você.</span>
-                                </p>
                             </div>
                         </div>
                     </div>
