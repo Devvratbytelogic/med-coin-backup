@@ -37,10 +37,10 @@ const features = [
 ]
 
 const trustItems = [
-  { icon: FaGlobe, text: 'Atendimento 100% Online' },
-  { icon: FaCreditCard, text: 'Pagamento via Pix ou Cartão' },
-  { icon: FaShieldAlt, text: 'Processo rápido e seguro' },
-  { icon: FaLock, text: 'Privacidade e proteção de dados' },
+  { icon: FaGlobe, lines: ['Atendimento', '100% Online'] },
+  { icon: FaCreditCard, lines: ['Pagamento', 'via Pix ou Cartão'] },
+  { icon: FaShieldAlt, lines: ['Processo rápido', 'e seguro'] },
+  { icon: FaLock, lines: ['Privacidade e', 'proteção de dados'] },
 ]
 
 export default function HomeHeroServicesSection() {
@@ -68,9 +68,14 @@ export default function HomeHeroServicesSection() {
           {trustItems.map((item) => {
             const Icon = item.icon
             return (
-              <div className="home-hero-trust-item" key={item.text}>
-                <Icon className="home-hero-trust-icon" />
-                <span>{item.text}</span>
+              <div className="home-hero-trust-item" key={item.lines.join(' ')}>
+                <div className="home-hero-trust-icon-wrap" aria-hidden="true">
+                  <Icon className="home-hero-trust-icon" />
+                </div>
+                <span className="home-hero-trust-text">
+                  <span className="home-hero-trust-line">{item.lines[0]}</span>
+                  <span className="home-hero-trust-line">{item.lines[1]}</span>
+                </span>
               </div>
             )
           })}
