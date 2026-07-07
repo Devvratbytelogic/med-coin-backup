@@ -1,19 +1,33 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
-import Context from "../context/context";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import ThemeToggle from "./ThemeToggle";
+import "./Menu.css";
+
+const CONTRACT_ADDRESS = "0xAAfA7Ef15233B80E0B99E125228f30220450784e";
+const COINSTORE_URL = "https://www.coinstore.com/spot/MEDCUSDT";
+const PANCAKESWAP_URL = `https://pancakeswap.finance/swap?outputCurrency=${CONTRACT_ADDRESS}`;
+const LIVE_CHART_URL =
+  "https://www.dextools.io/app/en/bnb/pair-explorer/0x34cefc7e43eead3390fc03c98f175132d637e5a9?t=1758352472251";
 
 const Menu = () => {
-  const { account, onConnect, providers } = useContext(Context);
   const location = useLocation();
   const navigate = useNavigate();
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
   const handleToggleMenu = () => {
     setMenuOpen((prev) => !prev);
   };
+
   const handleCloseMenu = () => {
     setMenuOpen(false);
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(CONTRACT_ADDRESS);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
   };
 
   const scrollToSection = (e, sectionId) => {
@@ -25,113 +39,237 @@ const Menu = () => {
         element.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      navigate({ pathname: '/', hash: sectionId });
+      navigate({ pathname: "/", hash: sectionId });
     }
   };
-
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup on unmount
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     if (menuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.height = '100vh';
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
     } else {
-      document.body.style.overflow = '';
-      document.body.style.height = '';
+      document.body.style.overflow = "";
+      document.body.style.height = "";
     }
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.height = '';
+      document.body.style.overflow = "";
+      document.body.style.height = "";
     };
   }, [menuOpen]);
-  return (
-    <>
-      <header className={`mainheader ${scrolled ? 'scrolled' : ''}`}>
-        <div className="container">
 
-          <nav className="navbar navbar-expand-lg navbar-dark flex-nowrap justify-content-between">
-            {/* <a className="navbar-brand" href="./">
-              <img className="logo desktop" src="./images/final/logo.png" alt="" />
-            </a> */}
-            <a className="navbar-brand" href="./">
-              <img className="logo desktop" src="images/logo.svg" alt="MEDCOIN.AI" />
-            </a>
-            <div className="d-flex gap-2 justify-content-center align-items-center">
-              <button onClick={handleToggleMenu} className={`navbar-toggler collapsed ${menuOpen ? "show1" : ""}`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="./images/menuicon.svg" className="img-fluid fa-bars" />
-                <i className="fa-solid fa-xmark"></i>
+  const truncatedAddress = `${CONTRACT_ADDRESS.slice(0, 18)}...`;
 
-              </button>
-              <div id="navbarScroll" className={`collapse navbar-collapse justify-content-end ${menuOpen ? "show1" : ""}`}  >
-                {/*<ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" >
-                <li className="nav-item">
-                  <Link onClick={handleCloseMenu} className="nav-link" to="/">Home</Link>
-                </li>
-                <li className="nav-item">
-                  <a onClick={handleCloseMenu} className="nav-link" href="https://app.solidproof.io/projects/habe">Audit</a>
-                </li>
-              </ul>*/}
-                <div className="d-flex  align-items-center">
-                  <div className="d-flex  align-items-center">
-                    <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" >
-                      <li className="nav-item">
-                        <a onClick={handleCloseMenu} className="nav-link" href="/">Home</a>
-                      </li>
-                      <li className="nav-item">
-                        <a onClick={(e) => scrollToSection(e, "features")} className="nav-link" href="/#features">Features</a>
-                      </li>
-                      <li className="nav-item">
-                        <a onClick={(e) => scrollToSection(e, "roadmap")} className="nav-link" href="/#roadmap">Roadmap</a>
-                      </li>
-                      <li className="nav-item">
-                        <a onClick={(e) => scrollToSection(e, "tokenomics")} className="nav-link" href="/#tokenomics">Tokenomics</a>
-                      </li>
-                      <li className="nav-item">
-                        <a onClick={(e) => scrollToSection(e, "team")} className="nav-link" href="/#team">Team</a>
-                      </li>
-                      {/* <li className="nav-item">
-                    <a onClick={handleCloseMenu} className="nav-link" href="./#faq">FAQ</a>
-                  </li> */}
-                      <li className="nav-item">
-                        <a onClick={handleCloseMenu} className="nav-link" href="/final-whitepaper.pdf" target='_blank'>Whitepaper</a>
-                      </li>
-                      <li className="nav-item">
-                        {/* <a onClick={handleCloseMenu} className="nav-link" href="/claim-refund">Claim&nbsp;Refund</a> */}
-                      </li>
-                      {/* <li className="nav-item">
-                        <Link onClick={handleCloseMenu} className="nav-link" to="/affiliate">Affiliate</Link>
-                      </li> */}
-                    </ul>
-                    {/*<div className="btnHeade text-center ">
-                  {
-                  account ?
-                  <button className="mybtn d-flex gap-2 align-items-center  w-auto m-auto" title={account}><span className="d-inline-block w-auto"> {account.substring(0, 6)}....{account.substring(36, 42)}</span></button>
-                  :
-                  <button className="mybtn d-flex gap-2 align-items-center  w-auto m-auto"  onClick={onConnect}><span className="d-inline-block w-auto">Connect Wallet</span></button>
-  
-                  }
-                </div>
-                */}
-                  </div>
-                </div>
-              </div>
-              {/* <ThemeToggle /> */}
-            </div>
-          </nav>
+  const mobileActions = (
+    <div className="menu-header-mobile-actions">
+      <div className="menu-header-card menu-header-buy-card">
+        <a
+          href={COINSTORE_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="menu-header-buy-row"
+          onClick={handleCloseMenu}
+        >
+          <img src="/images/final/coin-store.png" alt="CoinStore" />
+          <span className="menu-header-coinstore-name">Coinstore</span>
+          <span>Buy on CoinStore</span>
+        </a>
+        <div className="menu-header-divider" />
+        <a
+          href={PANCAKESWAP_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="menu-header-buy-row"
+          onClick={handleCloseMenu}
+        >
+          <img src="/images/pancake.svg" alt="PancakeSwap" />
+          <span>Buy on PancakeSwap</span>
+        </a>
+      </div>
+
+      <div className="menu-header-card menu-header-contract-card">
+        <p className="menu-header-label">Official Contract Address</p>
+        <div className="menu-header-address-row">
+          <p className="menu-header-address">{CONTRACT_ADDRESS}</p>
+          <button
+            type="button"
+            className="menu-header-copy-btn"
+            onClick={handleCopy}
+            title="Copy address"
+            aria-label="Copy contract address"
+          >
+            {copied ? (
+              <i className="fa-solid fa-check" />
+            ) : (
+              <i className="far fa-copy" />
+            )}
+          </button>
         </div>
-      </header>
-    </>
+      </div>
+
+      <a
+        href={LIVE_CHART_URL}
+        target="_blank"
+        rel="noreferrer"
+        className="menu-header-card menu-header-chart-card"
+        onClick={handleCloseMenu}
+      >
+        <p className="menu-header-label">Live Chart</p>
+        <img src="/images/hero-img1.svg" alt="Live Chart" />
+      </a>
+    </div>
+  );
+
+  return (
+    <header className={`mainheader menu-header ${scrolled ? "scrolled" : ""}`}>
+      <div className="container-fluid menu-header-container">
+        <nav className="menu-header-nav">
+          <a className="menu-header-brand" href="./">
+            <img src="images/logo.svg" alt="MEDCOIN.AI" />
+          </a>
+
+          <div className="menu-header-actions">
+            <div className="menu-header-card menu-header-buy-card">
+              <a
+                href={COINSTORE_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="menu-header-buy-row"
+              >
+                <img src="/images/final/coin-store.png" alt="CoinStore" />
+                <span className="menu-header-coinstore-name">Coinstore</span>
+                <span>Buy on CoinStore</span>
+              </a>
+              <div className="menu-header-divider" />
+              <a
+                href={PANCAKESWAP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="menu-header-buy-row"
+              >
+                <img src="/images/pancake.svg" alt="PancakeSwap" />
+                <span>Buy on PancakeSwap</span>
+              </a>
+            </div>
+
+            <div className="menu-header-card menu-header-contract-card">
+              <p className="menu-header-label">Official Contract Address</p>
+              <div className="menu-header-address-row">
+                <p className="menu-header-address">{truncatedAddress}</p>
+                <button
+                  type="button"
+                  className="menu-header-copy-btn"
+                  onClick={handleCopy}
+                  title="Copy address"
+                  aria-label="Copy contract address"
+                >
+                  {copied ? (
+                    <i className="fa-solid fa-check" />
+                  ) : (
+                    <i className="far fa-copy" />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <a
+              href={LIVE_CHART_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="menu-header-card menu-header-chart-card"
+            >
+              <p className="menu-header-label">Live Chart</p>
+              <img src="/images/hero-img1.svg" alt="Live Chart" />
+            </a>
+          </div>
+
+          <button
+            onClick={handleToggleMenu}
+            className={`menu-header-toggler ${menuOpen ? "show1" : ""}`}
+            type="button"
+            aria-expanded={menuOpen}
+            aria-label="Toggle navigation"
+          >
+            <img
+              src="./images/menuicon.svg"
+              className="img-fluid fa-bars"
+              alt=""
+            />
+            <i className="fa-solid fa-xmark" />
+          </button>
+
+          <div
+            id="navbarScroll"
+            className={`menu-header-collapse ${menuOpen ? "show1" : ""}`}
+          >
+            {mobileActions}
+            <ul className="menu-header-nav-list">
+              <li>
+                <a onClick={handleCloseMenu} className="nav-link" href="/">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={(e) => scrollToSection(e, "features")}
+                  className="nav-link"
+                  href="/#features"
+                >
+                  Features
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={(e) => scrollToSection(e, "roadmap")}
+                  className="nav-link"
+                  href="/#roadmap"
+                >
+                  Roadmap
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={(e) => scrollToSection(e, "tokenomics")}
+                  className="nav-link"
+                  href="/#tokenomics"
+                >
+                  Tokenomics
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={(e) => scrollToSection(e, "team")}
+                  className="nav-link"
+                  href="/#team"
+                >
+                  Team
+                </a>
+              </li>
+              <li>
+                <a
+                  onClick={handleCloseMenu}
+                  className="nav-link"
+                  href="/final-whitepaper.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Whitepaper
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
   );
 };
+
 export default Menu;
