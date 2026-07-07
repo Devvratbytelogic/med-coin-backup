@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaStethoscope } from 'react-icons/fa'
+import HomeHeroCircuitBackground from './HomeHeroCircuitBackground'
 import HomeHeroServicesSection from './HomeHeroServicesSection'
 import './HomeHeroSection.css'
 
@@ -24,6 +25,10 @@ export default function HomeHeroSection() {
 
             <div className="container">
                 <div className="home-hero-main">
+                    <div className="home-hero-circuit-bg" aria-hidden="true">
+                        <HomeHeroCircuitBackground />
+                    </div>
+
                     <div className="row align-items-center g-4">
                         <div className="col-12 col-lg-6 order-2 order-lg-1">
                             <div className="home-hero-content">
