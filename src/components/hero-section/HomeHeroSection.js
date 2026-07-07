@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaStethoscope } from 'react-icons/fa'
 import HomeHeroCircuitBackground from './HomeHeroCircuitBackground'
 import HomeHeroServicesSection from './HomeHeroServicesSection'
+import {
+    CONTRACT_ADDRESS,
+    COINSTORE_URL,
+    LIVE_CHART_URL,
+    PANCAKESWAP_URL,
+} from '../menuConstants'
 import './HomeHeroSection.css'
 
 
 export default function HomeHeroSection() {
+    const [copied, setCopied] = useState(false)
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(CONTRACT_ADDRESS)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 1500)
+    }
+
+    const truncatedAddress = `${CONTRACT_ADDRESS.slice(0, 18)}...`
+
     return (
         <section className="home-hero-section" id="top">
             <div className="home-hero-announcement">
@@ -30,7 +46,7 @@ export default function HomeHeroSection() {
                     </div>
 
                     <div className="row align-items-center g-4">
-                        <div className="col-12 col-lg-6 order-2 order-lg-1">
+                        <div className="col-12 col-lg-6">
                             <div className="home-hero-content">
                                 <div className="home-hero-brand">
                                     <img
@@ -54,10 +70,66 @@ export default function HomeHeroSection() {
                                     <FaStethoscope />
                                     <span>Iniciar Triagem</span>
                                 </a>
+
+                                <div className="home-hero-mobile-actions" aria-label="Purchase and token information">
+                                    <div className="menu-header-card menu-header-buy-card">
+                                        <a
+                                            href={COINSTORE_URL}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="menu-header-buy-row coinstore-icon"
+                                        >
+                                            <img src="/images/final/coin-store.png" alt="CoinStore" />
+                                            <span>Buy on CoinStore</span>
+                                        </a>
+                                        <div className="menu-header-divider" />
+                                        <a
+                                            href={PANCAKESWAP_URL}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="menu-header-buy-row"
+                                        >
+                                            <img src="/images/pancake.svg" alt="PancakeSwap" />
+                                            <span>Buy on PancakeSwap</span>
+                                        </a>
+                                    </div>
+
+                                    <div className="home-hero-mobile-actions-row">
+                                        <div className="menu-header-card menu-header-contract-card">
+                                            <p className="menu-header-label">Official Contract Address</p>
+                                            <div className="menu-header-address-row">
+                                                <p className="menu-header-address">{truncatedAddress}</p>
+                                                <button
+                                                    type="button"
+                                                    className="menu-header-copy-btn"
+                                                    onClick={handleCopy}
+                                                    title="Copy address"
+                                                    aria-label="Copy contract address"
+                                                >
+                                                    {copied ? (
+                                                        <i className="fa-solid fa-check" />
+                                                    ) : (
+                                                        <i className="far fa-copy" />
+                                                    )}
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <a
+                                            href={LIVE_CHART_URL}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="menu-header-card menu-header-chart-card"
+                                        >
+                                            <p className="menu-header-label">Live Chart</p>
+                                            <img src="/images/hero-img1.svg" alt="Live Chart" />
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="col-12 col-lg-6 order-1 order-lg-2">
+                        <div className="col-12 col-lg-6">
                             <div className="home-hero-visual">
                                 <img
                                     src="./images/final/hero-doctor.png"

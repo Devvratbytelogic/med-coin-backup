@@ -140,6 +140,10 @@
 	color: #0f172a;
 }
 
+.home-hero-mobile-actions {
+	display: none;
+}
+
 /* .home-hero-visual {
 	position: relative;
 	z-index: 1;
@@ -280,6 +284,43 @@
 
 	.home-hero-info-text br {
 		display: none;
+	}
+
+	.home-hero-mobile-actions {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		margin-top: 24px;
+		width: 100%;
+		text-align: left;
+	}
+
+	.home-hero-mobile-actions .menu-header-buy-card {
+		min-width: 0;
+		max-width: none;
+		width: 100%;
+		flex: none;
+	}
+
+	.home-hero-mobile-actions-row {
+		display: flex;
+		align-items: stretch;
+		gap: 10px;
+		width: 100%;
+	}
+
+	.home-hero-mobile-actions-row .menu-header-contract-card {
+		flex: 1;
+		min-width: 0;
+		max-width: none;
+		width: auto;
+	}
+
+	.home-hero-mobile-actions-row .menu-header-chart-card {
+		flex-shrink: 0;
+		min-width: 110px;
+		max-width: 130px;
+		width: auto;
 	}
 }
 
