@@ -39,8 +39,8 @@ const Menu = () => {
   const truncatedAddress = `${CONTRACT_ADDRESS.slice(0, 18)}...`;
 
   return (
-    <header className={`container mainheader menu-header ${scrolled ? "scrolled" : ""}`}>
-      <div className="menu-header-container">
+    <header className={`mainheader menu-header ${scrolled ? "scrolled" : ""}`}>
+      <div className="container menu-header-container">
         <nav className="menu-header-nav">
           <a className="menu-header-brand" href="./">
             <img src="images/logo.svg" alt="MEDCOIN.AI" />

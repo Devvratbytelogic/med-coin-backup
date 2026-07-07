@@ -49,12 +49,12 @@
 }
 
 html {
-	overflow-x: hidden;
+	overflow-x: clip;
 }
 
 body {
 	background-color: var(--primary-color);
-	overflow-x: hidden;
+	overflow-x: clip;
 	color: #fff;
 	font-family: "Inter", sans-serif;
 	transition: all 0.5s ease 0s;

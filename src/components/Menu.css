@@ -1,10 +1,11 @@
 .menu-header {
 	position: sticky;
-	left: 0;
 	top: 0;
+	left: 0;
 	width: 100%;
 	z-index: 100;
 	padding: 12px 0;
+	align-self: flex-start;
 }
 
 .menu-header.scrolled {
