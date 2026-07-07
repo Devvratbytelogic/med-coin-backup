@@ -66,6 +66,17 @@ const Menu = () => {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && menuOpen) {
+        handleCloseMenu();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
+
   const truncatedAddress = `${CONTRACT_ADDRESS.slice(0, 18)}...`;
 
   const mobileActions = (
@@ -193,78 +204,87 @@ const Menu = () => {
 
           <button
             onClick={handleToggleMenu}
-            className={`menu-header-toggler ${menuOpen ? "show1" : ""}`}
+            className={`menu-header-toggler ${menuOpen ? "is-open" : ""}`}
             type="button"
             aria-expanded={menuOpen}
+            aria-controls="menuOffcanvas"
             aria-label="Toggle navigation"
           >
-            <img
-              src="./images/menuicon.svg"
-              className="img-fluid fa-bars"
-              alt=""
-            />
-            <i className="fa-solid fa-xmark" />
+            <span className="menu-header-toggler-icon" aria-hidden="true">
+              <span className="menu-header-toggler-bar" />
+              <span className="menu-header-toggler-bar" />
+              <span className="menu-header-toggler-bar" />
+            </span>
           </button>
 
           <div
-            id="navbarScroll"
-            className={`menu-header-collapse ${menuOpen ? "show1" : ""}`}
+            className={`menu-offcanvas-backdrop ${menuOpen ? "is-open" : ""}`}
+            onClick={handleCloseMenu}
+            aria-hidden={!menuOpen}
+          />
+
+          <div
+            id="menuOffcanvas"
+            className={`menu-offcanvas ${menuOpen ? "is-open" : ""}`}
+            aria-hidden={!menuOpen}
           >
-            {mobileActions}
-            <ul className="menu-header-nav-list">
-              <li>
-                <a onClick={handleCloseMenu} className="nav-link" href="/">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  onClick={(e) => scrollToSection(e, "features")}
-                  className="nav-link"
-                  href="/#features"
-                >
-                  Features
-                </a>
-              </li>
-              <li>
-                <a
-                  onClick={(e) => scrollToSection(e, "roadmap")}
-                  className="nav-link"
-                  href="/#roadmap"
-                >
-                  Roadmap
-                </a>
-              </li>
-              <li>
-                <a
-                  onClick={(e) => scrollToSection(e, "tokenomics")}
-                  className="nav-link"
-                  href="/#tokenomics"
-                >
-                  Tokenomics
-                </a>
-              </li>
-              <li>
-                <a
-                  onClick={(e) => scrollToSection(e, "team")}
-                  className="nav-link"
-                  href="/#team"
-                >
-                  Team
-                </a>
-              </li>
-              <li>
-                <a
-                  onClick={handleCloseMenu}
-                  className="nav-link"
-                  href="/final-whitepaper.pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Whitepaper
-                </a>
-              </li>
-            </ul>
+            <div className="menu-offcanvas-inner">
+              {mobileActions}
+              <ul className="menu-header-nav-list">
+                <li>
+                  <a onClick={handleCloseMenu} className="nav-link" href="/">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={(e) => scrollToSection(e, "features")}
+                    className="nav-link"
+                    href="/#features"
+                  >
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={(e) => scrollToSection(e, "roadmap")}
+                    className="nav-link"
+                    href="/#roadmap"
+                  >
+                    Roadmap
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={(e) => scrollToSection(e, "tokenomics")}
+                    className="nav-link"
+                    href="/#tokenomics"
+                  >
+                    Tokenomics
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={(e) => scrollToSection(e, "team")}
+                    className="nav-link"
+                    href="/#team"
+                  >
+                    Team
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={handleCloseMenu}
+                    className="nav-link"
+                    href="/final-whitepaper.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Whitepaper
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
       </div>

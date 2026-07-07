@@ -306,7 +306,7 @@
 
 @media (max-width: 575.98px) {
 	.home-hero-section {
-		padding: 76px 0 16px;
+		padding: 0px 0 16px;
 	}
 
 	.home-hero-announcement {
@@ -346,9 +346,9 @@
 }
 
 @media (max-width: 399.98px) {
-	.home-hero-section {
+	/* .home-hero-section {
 		padding-top: 72px;
-	}
+	} */
 
 	.home-hero-announcement {
 		font-size: 10px;
