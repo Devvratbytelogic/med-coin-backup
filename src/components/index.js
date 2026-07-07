@@ -12,6 +12,7 @@ import WhyMedcoin from './WhyMedcoin.js';
 import TokenRoleSection from './TokenRoleSection.js';
 import HowItWorks from './HowItWorks.js';
 import HeroWaveBackground from './HeroWaveBackground.js';
+import HomeHeroSection from './hero-section/HomeHeroSection.js';
 
 const IndexSections = () => {
   const location = useLocation();
@@ -32,34 +33,7 @@ const IndexSections = () => {
       <SplashScreen />
       <Menu />
 
-      <section className="sliderSec padSec overHide pb-0" id='top'>
-        <div className='hero_container'>
-          <div className='hero-wrapper'>
-            <HeroWaveBackground />
-            {/* <GoldenTrailCanvas /> */}
-            <div className="container p-0 mt-md-5 mt-lg-0 ">
-              <div className="row align-items-center gy-5">
-                <HeroSection />
-              </div>
-            </div>
-          </div>
-          <div className="maquee aniSec">
-            <div className='ani'>
-              <div className='aniIn'>
-                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com/spot/MEDCUSDT' target='_blank' rel='noreferrer'>Buy on CoinStore</a></span>
-                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com/spot/MEDCUSDT' target='_blank' rel='noreferrer'>Buy on CoinStore</a></span>
-                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com/spot/MEDCUSDT' target='_blank' rel='noreferrer'>Buy on CoinStore</a></span>
-                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com/spot/MEDCUSDT' target='_blank' rel='noreferrer'>Buy on CoinStore</a></span>
-                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com/spot/MEDCUSDT' target='_blank' rel='noreferrer'>Buy on CoinStore</a></span>
-                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com/spot/MEDCUSDT' target='_blank' rel='noreferrer'>Buy on CoinStore</a></span>
-                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com/spot/MEDCUSDT' target='_blank' rel='noreferrer'>Buy on CoinStore</a></span>
-                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com/spot/MEDCUSDT' target='_blank' rel='noreferrer'>Buy on CoinStore</a></span>
-                <span className="px-5">AI-Powered Telemedicine Platform | <a href='https://www.coinstore.com/spot/MEDCUSDT' target='_blank' rel='noreferrer'>Buy on CoinStore</a></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHeroSection />
 
 
       <div className='main_content'>
