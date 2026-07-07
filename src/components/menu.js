@@ -228,6 +228,23 @@ const Menu = () => {
             className={`menu-offcanvas ${menuOpen ? "is-open" : ""}`}
             aria-hidden={!menuOpen}
           >
+            <div className="menu-offcanvas-header">
+              <a
+                className="menu-offcanvas-brand"
+                href="./"
+                onClick={handleCloseMenu}
+              >
+                <img src="images/logo.svg" alt="MEDCOIN.AI" />
+              </a>
+              <button
+                type="button"
+                className="menu-offcanvas-close"
+                onClick={handleCloseMenu}
+                aria-label="Close menu"
+              >
+                <i className="fa-solid fa-xmark" />
+              </button>
+            </div>
             <div className="menu-offcanvas-inner">
               {mobileActions}
               <ul className="menu-header-nav-list">
