@@ -129,8 +129,8 @@ const Menu = () => {
   );
 
   return (
-    <header className={`mainheader menu-header ${scrolled ? "scrolled" : ""}`}>
-      <div className="container-fluid menu-header-container">
+    <header className={`container mainheader menu-header ${scrolled ? "scrolled" : ""}`}>
+      <div className="menu-header-container">
         <nav className="menu-header-nav">
           <a className="menu-header-brand" href="./">
             <img src="images/logo.svg" alt="MEDCOIN.AI" />
