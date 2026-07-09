@@ -688,7 +688,7 @@ const PresaleAffiliate = ({ initialText, expandedText }) => {
                                         <input type="number" placeholder="0.00" className="bg-transparent" value={usdtBuyAmount} onChange={(e) => { handleChangeUSDT(e.target.value) }} />
                                     </div>
                                     <div className="calBox">
-                                        <img src="images/favicon.png" className="img-fluid calBoxLogo" />
+                                        <img src="images/final/medcoin-icon.png" className="img-fluid calBoxLogo" alt="MEDCOIN" />
                                         <input type="number" placeholder="0.00" className="bg-transparent" value={tokenBuyAmount} onChange={(e) => { handleChangeToken(e.target.value) }} />
                                     </div>
                                 </div>
