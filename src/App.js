@@ -12,6 +12,7 @@ import Affiliate from "./pages/affiliate/Affiliate";
 import Translator from "./components/Translator";
 import ClaimRefund from "./pages/claim-refund/ClaimRefund";
 import HowToBuy from "./pages/how-to-buy/HowToBuy";
+import NotFound from "./pages/not-found/NotFound";
 
 function App() {
    const [modalIsOpen, setIsOpen] = useState(false);
@@ -125,6 +126,7 @@ function App() {
                   {/* <Route path='/affiliate' element={<Affiliate />} /> */}
                   {/* <Route path='/claim-refund' element={<ClaimRefund />} /> */}
                   <Route path='/how-to-buy' element={<HowToBuy />} />
+                  <Route path='*' element={<NotFound />} />
                </Routes>
             </Router>
          </Context.Provider>
