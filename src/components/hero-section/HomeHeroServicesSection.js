@@ -2,11 +2,7 @@ import React from 'react'
 import {
   FaBrain,
   FaCalendarAlt,
-  FaCreditCard,
   FaFileMedicalAlt,
-  FaGlobe,
-  FaLock,
-  FaShieldAlt,
   FaUserMd,
 } from 'react-icons/fa'
 import './HomeHeroServicesSection.css'
@@ -36,13 +32,6 @@ const features = [
   },
 ]
 
-const trustItems = [
-  { icon: FaGlobe, lines: ['Atendimento', '100% Online'] },
-  { icon: FaCreditCard, lines: ['Pagamento', 'via Pix ou Cartão'] },
-  { icon: FaShieldAlt, lines: ['Processo rápido', 'e seguro'] },
-  { icon: FaLock, lines: ['Privacidade e', 'proteção de dados'] },
-]
-
 export default function HomeHeroServicesSection() {
   return (
     <div className="home-hero-services">
@@ -57,25 +46,6 @@ export default function HomeHeroServicesSection() {
                 </div>
                 <h4>{feature.title}</h4>
                 <p>{feature.description}</p>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-
-      <div className="home-hero-trust">
-        <div className="home-hero-trust-grid">
-          {trustItems.map((item) => {
-            const Icon = item.icon
-            return (
-              <div className="home-hero-trust-item" key={item.lines.join(' ')}>
-                <div className="home-hero-trust-icon-wrap" aria-hidden="true">
-                  <Icon className="home-hero-trust-icon" />
-                </div>
-                <span className="home-hero-trust-text">
-                  <span className="home-hero-trust-line">{item.lines[0]}</span>
-                  <span className="home-hero-trust-line">{item.lines[1]}</span>
-                </span>
               </div>
             )
           })}

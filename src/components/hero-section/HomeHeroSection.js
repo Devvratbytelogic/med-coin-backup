@@ -1,42 +1,21 @@
-import React, { useState } from 'react'
-import { FaStethoscope } from 'react-icons/fa'
+import React from 'react'
+import { FaStethoscope, FaGlobe, FaCreditCard, FaShieldAlt, FaLock } from 'react-icons/fa'
 import HomeHeroCircuitBackground from './HomeHeroCircuitBackground'
 import HomeHeroServicesSection from './HomeHeroServicesSection'
-import {
-    CONTRACT_ADDRESS,
-    COINSTORE_URL,
-    LIVE_CHART_URL,
-    PANCAKESWAP_URL,
-} from '../menuConstants'
 import './HomeHeroSection.css'
 
+const patientBenefits = [
+    { icon: FaGlobe, lines: ['100% Online Care'] },
+    { icon: FaCreditCard, lines: ['Pay with Pix or', 'Credit Card'] },
+    { icon: FaShieldAlt, lines: ['Fast & Secure', 'Process'] },
+    { icon: FaLock, lines: ['Privacy & Data', 'Protection'] },
+]
 
 export default function HomeHeroSection() {
-    const [copied, setCopied] = useState(false)
-
-    const handleCopy = () => {
-        navigator.clipboard.writeText(CONTRACT_ADDRESS)
-        setCopied(true)
-        setTimeout(() => setCopied(false), 1500)
-    }
-
-    const truncatedAddress = `${CONTRACT_ADDRESS.slice(0, 18)}...`
-
     return (
         <section className="home-hero-section" id="top">
             <div className="home-hero-announcement">
-                <p className="mb-0">
-                    <span>AI-Powered Telemedicine Platform</span>
-                    <span className="home-hero-announcement-separator" aria-hidden="true">|</span>
-                    <a
-                        href="https://www.coinstore.com/spot/MEDCUSDT"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="home-hero-announcement-link"
-                    >
-                        Buy on CoinStore
-                    </a>
-                </p>
+                <p>AI-Powered Telemedicine Platform</p>
             </div>
 
             <div className="container">
@@ -62,8 +41,8 @@ export default function HomeHeroSection() {
                                 </h1>
 
                                 <p className="home-hero-description">
-                                    Consultas online com triagem inteligente por IA e atendimento médico remoto
-                                    realizado por profissionais qualificados.
+                                    Online consultations with AI-powered intelligent triage and online medical care
+                                    provided by physicians with an active Brazilian CRM.
                                 </p>
 
                                 <a href="https://wa.me/5511914963086" target="_blank" rel="noreferrer" className="home-hero-cta-btn">
@@ -71,59 +50,25 @@ export default function HomeHeroSection() {
                                     <span>Iniciar Triagem</span>
                                 </a>
 
-                                <div className="home-hero-mobile-actions" aria-label="Purchase and token information">
-                                    <div className="menu-header-card menu-header-buy-card">
-                                        <a
-                                            href={COINSTORE_URL}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="menu-header-buy-row coinstore-icon"
-                                        >
-                                            <img src="/images/final/coin-store.png" alt="CoinStore" />
-                                            <span>Buy on CoinStore</span>
-                                        </a>
-                                        <div className="menu-header-divider" />
-                                        <a
-                                            href={PANCAKESWAP_URL}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="menu-header-buy-row"
-                                        >
-                                            <img src="/images/pancake.svg" alt="PancakeSwap" />
-                                            <span>Buy on PancakeSwap</span>
-                                        </a>
-                                    </div>
-
-                                    <div className="home-hero-mobile-actions-row">
-                                        <div className="menu-header-card menu-header-contract-card">
-                                            <p className="menu-header-label">Official Contract Address</p>
-                                            <div className="menu-header-address-row">
-                                                <p className="menu-header-address">{truncatedAddress}</p>
-                                                <button
-                                                    type="button"
-                                                    className="menu-header-copy-btn"
-                                                    onClick={handleCopy}
-                                                    title="Copy address"
-                                                    aria-label="Copy contract address"
-                                                >
-                                                    {copied ? (
-                                                        <i className="fa-solid fa-check" />
-                                                    ) : (
-                                                        <i className="far fa-copy" />
-                                                    )}
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <a
-                                            href={LIVE_CHART_URL}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="menu-header-card menu-header-chart-card"
-                                        >
-                                            <p className="menu-header-label">Live Chart</p>
-                                            <img src="/images/hero-img1.svg" alt="Live Chart" />
-                                        </a>
+                                <div className="home-hero-benefits" aria-label="Patient benefits">
+                                    <div className="home-hero-benefits-grid">
+                                        {patientBenefits.map((item) => {
+                                            const Icon = item.icon
+                                            return (
+                                                <div className="home-hero-benefits-item" key={item.lines.join(' ')}>
+                                                    <div className="home-hero-benefits-icon-wrap" aria-hidden="true">
+                                                        <Icon className="home-hero-benefits-icon" />
+                                                    </div>
+                                                    <span className="home-hero-benefits-text">
+                                                        {item.lines.map((line) => (
+                                                            <span className="home-hero-benefits-line" key={line}>
+                                                                {line}
+                                                            </span>
+                                                        ))}
+                                                    </span>
+                                                </div>
+                                            )
+                                        })}
                                     </div>
                                 </div>
                             </div>

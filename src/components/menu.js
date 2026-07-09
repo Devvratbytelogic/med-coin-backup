@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import OffcanvasMenu from "./OffcanvasMenu";
-import {
-  CONTRACT_ADDRESS,
-  COINSTORE_URL,
-  LIVE_CHART_URL,
-  PANCAKESWAP_URL,
-} from "./menuConstants";
 import "./Menu.css";
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleToggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -21,10 +17,16 @@ const Menu = () => {
     setMenuOpen(false);
   };
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(CONTRACT_ADDRESS);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate({ pathname: "/", hash: sectionId });
+    }
   };
 
   useEffect(() => {
@@ -36,7 +38,16 @@ const Menu = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const truncatedAddress = `${CONTRACT_ADDRESS.slice(0, 18)}...`;
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 992 && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [menuOpen]);
 
   return (
     <header className={`mainheader menu-header ${scrolled ? "scrolled" : ""}`}>
@@ -46,59 +57,59 @@ const Menu = () => {
             <img src="images/logo.svg" alt="MEDCOIN.AI" />
           </a>
 
-          <div className="menu-header-actions">
-            <div className="menu-header-card menu-header-buy-card">
+          <ul className="menu-header-desktop-nav">
+            <li>
+              <a className="nav-link" href="/">
+                Home
+              </a>
+            </li>
+            <li>
               <a
-                href={COINSTORE_URL}
+                onClick={(e) => scrollToSection(e, "features")}
+                className="nav-link"
+                href="/#features"
+              >
+                Features
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={(e) => scrollToSection(e, "roadmap")}
+                className="nav-link"
+                href="/#roadmap"
+              >
+                Roadmap
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={(e) => scrollToSection(e, "tokenomics")}
+                className="nav-link"
+                href="/#tokenomics"
+              >
+                Tokenomics
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={(e) => scrollToSection(e, "team")}
+                className="nav-link"
+                href="/#team"
+              >
+                Team
+              </a>
+            </li>
+            <li>
+              <a
+                className="nav-link"
+                href="/final-whitepaper.pdf"
                 target="_blank"
                 rel="noreferrer"
-                className="menu-header-buy-row coinstore-icon"
               >
-                <img src="/images/final/coin-store.png" alt="CoinStore" />
-                <span>Buy on CoinStore</span>
+                Whitepaper
               </a>
-              <div className="menu-header-divider" />
-              <a
-                href={PANCAKESWAP_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="menu-header-buy-row"
-              >
-                <img src="/images/pancake.svg" alt="PancakeSwap" />
-                <span>Buy on PancakeSwap</span>
-              </a>
-            </div>
-
-            <div className="menu-header-card menu-header-contract-card">
-              <p className="menu-header-label">Official Contract Address</p>
-              <div className="menu-header-address-row">
-                <p className="menu-header-address">{truncatedAddress}</p>
-                <button
-                  type="button"
-                  className="menu-header-copy-btn"
-                  onClick={handleCopy}
-                  title="Copy address"
-                  aria-label="Copy contract address"
-                >
-                  {copied ? (
-                    <i className="fa-solid fa-check" />
-                  ) : (
-                    <i className="far fa-copy" />
-                  )}
-                </button>
-              </div>
-            </div>
-
-            <a
-              href={LIVE_CHART_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="menu-header-card menu-header-chart-card"
-            >
-              <p className="menu-header-label">Live Chart</p>
-              <img src="/images/hero-img1.svg" alt="Live Chart" />
-            </a>
-          </div>
+            </li>
+          </ul>
 
           <button
             onClick={handleToggleMenu}

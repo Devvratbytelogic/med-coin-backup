@@ -13,6 +13,7 @@ import TokenRoleSection from './TokenRoleSection.js';
 import HowItWorks from './HowItWorks.js';
 import HeroWaveBackground from './HeroWaveBackground.js';
 import HomeHeroSection from './hero-section/HomeHeroSection.js';
+import CryptoSection from './CryptoSection.js';
 
 const IndexSections = () => {
   const location = useLocation();
@@ -108,6 +109,8 @@ const IndexSections = () => {
             </div>
           </div>
         </section>
+
+        <CryptoSection />
 
         <WhyMedcoin />
         <TokenRoleSection />
