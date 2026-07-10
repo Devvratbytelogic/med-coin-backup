@@ -213,7 +213,7 @@
 .home-hero-doctor-img {
 	width: 100%;
 	max-width: 520px;
-	height: 100%;
+	height: auto;
 	position: absolute;
 	bottom: -2px;
 	right: 12%;
