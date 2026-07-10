@@ -351,13 +351,13 @@
 	}
 }
 
-.home-hero-visual {
+/* .home-hero-visual {
 	position: relative;
 	z-index: 1;
 	min-height: clamp(320px, 34vw, 480px);
 	overflow: hidden;
 	pointer-events: none;
-}
+} */
 
 .home-hero-doctor-img {
 	width: 100%;
@@ -365,7 +365,7 @@
 	height: auto;
 	position: absolute;
 	bottom: -2px;
-	right: 12%;
+	right: 7%;
 	display: block;
 	object-fit: contain;
 	z-index: 2;
@@ -416,7 +416,7 @@
 	}
 }
 
-/* Mobile / tablet only - desktop styles above stay untouched */
+/* Mobile only — separate markup; desktop styles above are unchanged */
 @media (max-width: 991.98px) {
 	.home-hero-section {
 		padding: 0px 0 24px;
@@ -428,48 +428,43 @@
 		overflow: hidden;
 	}
 
-	.home-hero-content {
+	.home-hero-mobile {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		text-align: center;
-		margin-top: 4px;
 	}
 
-	.home-hero-brand {
+	.home-hero-mobile .home-hero-brand {
 		display: flex;
 		justify-content: center;
-	}
-
-	.home-hero-description {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.home-hero-cta-btn {
-		width: 100%;
-		max-width: 320px;
-		justify-content: center;
-	}
-
-	.home-hero-visual {
-		min-height: auto;
-		margin-top: 0;
 		margin-bottom: 8px;
-		overflow: visible;
 	}
 
-	.home-hero-doctor-img {
+	.home-hero-mobile-doctor {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		/* margin-bottom: 12px; */
+	}
+
+	.home-hero-mobile .home-hero-doctor-img--mobile {
 		position: relative;
 		right: auto;
 		bottom: auto;
+		width: auto;
 		height: auto;
 		max-width: min(340px, 92%);
 		margin: 0 auto;
+		display: block;
+		object-fit: contain;
 	}
 
-	.home-hero-info-card {
+	.home-hero-mobile .home-hero-info-card {
 		position: static;
 		width: 100%;
 		max-width: 100%;
-		/* margin-top: 14px; */
+		margin-bottom: 18px;
 		display: flex;
 		align-items: center;
 		gap: 14px;
@@ -479,31 +474,55 @@
 		backdrop-filter: blur(6px);
 	}
 
-	.home-hero-info-icon {
+	.home-hero-mobile .home-hero-info-icon {
 		margin-bottom: 0;
 		flex-shrink: 0;
 	}
 
-	.home-hero-info-icon-svg {
+	.home-hero-mobile .home-hero-info-icon-svg {
 		width: 48px;
 		height: 48px;
 	}
 
-	.home-hero-info-text {
+	.home-hero-mobile .home-hero-info-text {
 		font-size: 13px;
 		line-height: 1.45;
 	}
 
-	.home-hero-info-text br {
+	.home-hero-mobile .home-hero-info-text br {
 		display: none;
 	}
 
-	.home-hero-benefits {
+	.home-hero-mobile .home-hero-title {
+		margin: 0 0 14px;
 		width: 100%;
 	}
 
-	.home-hero-benefits-viewport {
-		border-radius: 999px;
+	.home-hero-mobile .home-hero-description {
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 22px;
+	}
+
+	.home-hero-mobile .home-hero-cta-btn {
+		width: 100%;
+		max-width: 320px;
+		justify-content: center;
+	}
+
+	.home-hero-mobile .home-hero-benefits {
+		width: 100%;
+		margin-top: 18px;
+	}
+
+	.home-hero-benefits-viewport::before,
+	.home-hero-benefits-viewport::after {
+		width: 20px;
+	}
+
+	.home-hero-benefits-item {
+		padding: 10px 14px;
+		font-size: 10px;
 	}
 }
 
@@ -523,21 +542,16 @@
 		border-radius: 16px;
 	}
 
-	.home-hero-title {
-		margin: 20px 0 14px;
+	.home-hero-mobile .home-hero-title {
 		font-size: clamp(24px, 6.5vw, 28px);
 	}
 
-	.home-hero-description {
-		margin-bottom: 22px;
-	}
-
-	.home-hero-cta-btn {
+	.home-hero-mobile .home-hero-cta-btn {
 		padding: 13px 24px;
 		font-size: 15px;
 	}
 
-	.home-hero-doctor-img {
+	.home-hero-mobile .home-hero-doctor-img--mobile {
 		max-width: min(300px, 88%);
 	}
 
@@ -560,24 +574,24 @@
 		padding: 18px 14px;
 	}
 
-	.home-hero-title {
-		margin-top: 16px;
+	.home-hero-mobile .home-hero-title {
+		margin-bottom: 12px;
 	}
 
-	.home-hero-cta-btn {
+	.home-hero-mobile .home-hero-cta-btn {
 		max-width: none;
 	}
 
-	.home-hero-doctor-img {
+	.home-hero-mobile .home-hero-doctor-img--mobile {
 		max-width: min(280px, 100%);
 	}
 
-	.home-hero-info-card {
+	.home-hero-mobile .home-hero-info-card {
 		padding: 12px 14px;
 		gap: 12px;
 	}
 
-	.home-hero-info-icon-svg {
+	.home-hero-mobile .home-hero-info-icon-svg {
 		width: 42px;
 		height: 42px;
 	}
@@ -594,33 +608,33 @@
 		padding: 8px 10px;
 	}
 
-	.home-hero-brand-logo {
+	.home-hero-mobile .home-hero-brand-logo {
 		width: 140px;
 	}
 
-	.home-hero-title {
+	.home-hero-mobile .home-hero-title {
 		font-size: 22px;
 	}
 
-	.home-hero-description {
+	.home-hero-mobile .home-hero-description {
 		font-size: 13px;
 	}
 
-	.home-hero-cta-btn {
+	.home-hero-mobile .home-hero-cta-btn {
 		padding: 12px 20px;
 		font-size: 14px;
 	}
 
-	.home-hero-doctor-img {
+	.home-hero-mobile .home-hero-doctor-img--mobile {
 		max-width: 240px;
 	}
 
-	.home-hero-info-icon-svg {
+	.home-hero-mobile .home-hero-info-icon-svg {
 		width: 36px;
 		height: 36px;
 	}
 
-	.home-hero-info-text {
+	.home-hero-mobile .home-hero-info-text {
 		font-size: 12px;
 	}
 }

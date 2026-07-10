@@ -34,7 +34,32 @@ function BenefitItem({ item }) {
     )
 }
 
-export default function HomeHeroSection() {
+function HomeHeroInfoCard() {
+    return (
+        <div className="home-hero-info-card">
+            <div className="home-hero-info-icon">
+                <img
+                    src="./images/final/doctor-icon.png"
+                    alt="Médicos"
+                    className="home-hero-info-icon-svg"
+                />
+            </div>
+            <p className="home-hero-info-text mb-0">
+                IA e médicos{' '}
+                <br />
+                trabalhando{' '}
+                <br />
+                juntos para{' '}
+                <br />
+                <span className="gold_color_text">cuidar melhor</span>{' '}
+                <br />
+                <span className="gold_color_text">de você.</span>
+            </p>
+        </div>
+    )
+}
+
+function HomeHeroBenefitsCarousel() {
     const trackRef = useRef(null)
     const itemWidthsRef = useRef([])
     const indexRef = useRef(BENEFIT_COUNT)
@@ -153,6 +178,87 @@ export default function HomeHeroSection() {
     }
 
     return (
+        <div className="home-hero-benefits" aria-label="Benefícios para pacientes">
+            <button
+                type="button"
+                className="home-hero-benefits-nav home-hero-benefits-nav-prev"
+                onClick={() => moveBenefits(-1)}
+                aria-label="Ver benefícios anteriores"
+            >
+                <FaChevronLeft aria-hidden="true" />
+            </button>
+
+            <div className="home-hero-benefits-viewport">
+                <div
+                    ref={trackRef}
+                    className={`home-hero-benefits-track${enableTransition ? '' : ' is-static'}`}
+                    style={{ transform: `translate3d(${translateX}px, 0, 0)` }}
+                    onTransitionEnd={handleTransitionEnd}
+                >
+                    {loopItems.map((item, index) => (
+                        <BenefitItem key={`${item.text}-${index}`} item={item} />
+                    ))}
+                </div>
+            </div>
+
+            <button
+                type="button"
+                className="home-hero-benefits-nav home-hero-benefits-nav-next"
+                onClick={() => moveBenefits(1)}
+                aria-label="Ver próximos benefícios"
+            >
+                <FaChevronRight aria-hidden="true" />
+            </button>
+        </div>
+    )
+}
+
+function HomeHeroBrand() {
+    return (
+        <div className="home-hero-brand">
+            <img
+                src="./images/final/hero-logo.png"
+                alt="MEDCOIN HEALTH"
+                className="home-hero-brand-logo"
+            />
+        </div>
+    )
+}
+
+function HomeHeroTitle() {
+    return (
+        <h1 className="home-hero-title">
+            Telemedicina acessível, inteligente e de{' '}
+            <span className="gold_color_text">alta qualidade.</span>
+        </h1>
+    )
+}
+
+function HomeHeroDescription() {
+    return (
+        <p className="home-hero-description">
+            Consultas online com triagem inteligente por IA e atendimento médico online
+            realizado por médicos com CRM ativo no Brasil.
+        </p>
+    )
+}
+
+function HomeHeroCta() {
+    return (
+        <a
+            href="https://wa.me/5511914963086"
+            target="_blank"
+            rel="noreferrer"
+            className="home-hero-cta-btn"
+        >
+            <FaStethoscope />
+            <span>Iniciar Triagem</span>
+        </a>
+    )
+}
+
+export default function HomeHeroSection() {
+    return (
         <section className="home-hero-section" id="top">
             <div className="home-hero-announcement">
                 <p>AI-Powered Telemedicine Platform</p>
@@ -165,96 +271,44 @@ export default function HomeHeroSection() {
                     </div>
 
                     <div className="row align-items-center g-4">
-                        <div className="col-12 col-lg-6">
+                        {/* Desktop: text left, doctor right */}
+                        <div className="col-lg-6 d-none d-lg-block">
                             <div className="home-hero-content">
-                                <div className="home-hero-brand">
-                                    <img
-                                        src="./images/final/hero-logo.png"
-                                        alt="MEDCOIN HEALTH"
-                                        className="home-hero-brand-logo"
-                                    />
-                                </div>
-
-                                <h1 className="home-hero-title">
-                                    Telemedicina acessível, inteligente e de{' '}
-                                    <span className="gold_color_text">alta qualidade.</span>
-                                </h1>
-
-                                <p className="home-hero-description">
-                                    Consultas online com triagem inteligente por IA e atendimento médico online
-                                    realizado por médicos com CRM ativo no Brasil.
-                                </p>
-
-                                <a href="https://wa.me/5511914963086" target="_blank" rel="noreferrer" className="home-hero-cta-btn">
-                                    <FaStethoscope />
-                                    <span>Iniciar Triagem</span>
-                                </a>
-
-                                <div className="home-hero-benefits" aria-label="Benefícios para pacientes">
-                                    <button
-                                        type="button"
-                                        className="home-hero-benefits-nav home-hero-benefits-nav-prev"
-                                        onClick={() => moveBenefits(-1)}
-                                        aria-label="Ver benefícios anteriores"
-                                    >
-                                        <FaChevronLeft aria-hidden="true" />
-                                    </button>
-
-                                    <div className="home-hero-benefits-viewport">
-                                        <div
-                                            ref={trackRef}
-                                            className={`home-hero-benefits-track${enableTransition ? '' : ' is-static'}`}
-                                            style={{ transform: `translate3d(${translateX}px, 0, 0)` }}
-                                            onTransitionEnd={handleTransitionEnd}
-                                        >
-                                            {loopItems.map((item, index) => (
-                                                <BenefitItem
-                                                    key={`${item.text}-${index}`}
-                                                    item={item}
-                                                />
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <button
-                                        type="button"
-                                        className="home-hero-benefits-nav home-hero-benefits-nav-next"
-                                        onClick={() => moveBenefits(1)}
-                                        aria-label="Ver próximos benefícios"
-                                    >
-                                        <FaChevronRight aria-hidden="true" />
-                                    </button>
-                                </div>
+                                <HomeHeroBrand />
+                                <HomeHeroTitle />
+                                <HomeHeroDescription />
+                                <HomeHeroCta />
+                                <HomeHeroBenefitsCarousel />
                             </div>
                         </div>
 
-                        <div className="col-12 col-lg-6">
+                        <div className="col-lg-6 d-none d-lg-block">
                             <div className="home-hero-visual">
                                 <img
                                     src="./images/final/hero-doctor.png"
                                     alt="Médica da MEDCOIN HEALTH"
                                     className="home-hero-doctor-img"
                                 />
-                                <div className="home-hero-info-card">
-                                    <div className="home-hero-info-icon">
-                                        <img
-                                            src="./images/final/doctor-icon.png"
-                                            alt="Médicos"
-                                            className="home-hero-info-icon-svg"
-                                        />
-                                    </div>
-                                    <p className="home-hero-info-text mb-0">
-                                        IA e médicos{' '}
-                                        <br />
-                                        trabalhando{' '}
-                                        <br />
-                                        juntos para{' '}
-                                        <br />
-                                        <span className="gold_color_text">cuidar melhor</span>{' '}
-                                        <br />
-                                        <span className="gold_color_text">de você.</span>
-                                    </p>
+                                <HomeHeroInfoCard />
+                            </div>
+                        </div>
+
+                        {/* Mobile: logo → doctor → info → copy → CTA → benefits */}
+                        <div className="col-12 d-lg-none">
+                            <div className="home-hero-mobile">
+                                <HomeHeroBrand />
+                                <div className="home-hero-mobile-doctor">
+                                    <img
+                                        src="./images/final/hero-doctor.png"
+                                        alt="Médica da MEDCOIN HEALTH"
+                                        className="home-hero-doctor-img home-hero-doctor-img--mobile"
+                                    />
                                 </div>
+                                <HomeHeroInfoCard />
+                                <HomeHeroTitle />
+                                <HomeHeroDescription />
+                                <HomeHeroCta />
+                                <HomeHeroBenefitsCarousel />
                             </div>
                         </div>
                     </div>
