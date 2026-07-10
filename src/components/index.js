@@ -43,6 +43,9 @@ const IndexSections = () => {
             {/* <div className="common_outline_btn btn_fit_width mx-auto mb-3">About MEDCOIN</div> */}
             <h2 className="h2mY">What is <span className='gold_color_text'>MEDCOIN.AI</span></h2>
             <p className='subdecription'>MEDCOIN.AI is a blockchain-based healthcare ecosystem and telemedicine platform powered by artificial intelligence, designed to connect patients and healthcare professionals in a more accessible and intelligent way.</p>
+
+            <CryptoSection />
+
             <div className="mFeatures">
               <div className="row g-4">
                 <div className="col-md-4">
@@ -109,8 +112,6 @@ const IndexSections = () => {
             </div>
           </div>
         </section>
-
-        <CryptoSection />
 
         <WhyMedcoin />
         <TokenRoleSection />
