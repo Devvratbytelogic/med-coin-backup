@@ -21,9 +21,9 @@ export default function CryptoSection() {
 
     return (
         <div className="crypto-section" id="crypto">
-            <h2 className="h2mY">
-                Developed on <span className="gold_color_text">Binance Smart Chain (BSC)</span>
-            </h2>
+            <div className="crypto-section-bsc-logo">
+                <img src="/images/final/bsc-logo.png" alt="Developed on Binance Smart Chain (BSC)" />
+            </div>
 
             <div className="crypto-section-actions">
                 <div className="menu-header-card menu-header-buy-card">
