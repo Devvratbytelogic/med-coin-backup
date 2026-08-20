@@ -334,7 +334,7 @@ const IndexSections = () => {
                 </p>
               </div>
               <div className="text-center d-flex justify-content-center">
-                <a href='#presaleBox' className="common_outline_btn d-flex gap-2 align-items-center ustify-content-center w-auto m-auto"><span className="d-inline-block w-auto">Get Started</span></a>
+                <a href='#crypto' className="common_outline_btn d-flex gap-2 align-items-center ustify-content-center w-auto m-auto"><span className="d-inline-block w-auto">Get Started</span></a>
               </div>
 
             </div>
