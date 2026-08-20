@@ -152,7 +152,6 @@ const IndexSections = () => {
                         <img src="./images/tokenicons/tokenicons2.svg" className="img-fluid" />
                         <div className="">
                           <h4 className="mt-1 mb-2" >7% Founders & Core Team</h4>
-                          <p className="mb-0">(Vesting)</p>
                         </div>
                       </div>
                     </div>
@@ -161,7 +160,6 @@ const IndexSections = () => {
                         <img src="./images/tokenicons/tokenicons3.svg" className="img-fluid" />
                         <div className="">
                           <h4 className="mt-1 mb-2" >10% Development</h4>
-                          <p className="mb-0">(milestone-based)</p>
                         </div>
                       </div>
                     </div>
