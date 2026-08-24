@@ -285,7 +285,7 @@ export default function HomeHeroSection() {
                         <div className="col-lg-6 d-none d-lg-block">
                             <div className="home-hero-visual">
                                 <img
-                                    src="./images/final/hero-doctor.png"
+                                    src="./images/final/hero-doctor.webp"
                                     alt="Médica da MEDCOIN HEALTH"
                                     className="home-hero-doctor-img"
                                 />
@@ -299,7 +299,7 @@ export default function HomeHeroSection() {
                                 <HomeHeroBrand />
                                 <div className="home-hero-mobile-doctor">
                                     <img
-                                        src="./images/final/hero-doctor.png"
+                                        src="./images/final/hero-doctor.webp"
                                         alt="Médica da MEDCOIN HEALTH"
                                         className="home-hero-doctor-img home-hero-doctor-img--mobile"
                                     />

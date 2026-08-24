@@ -38,8 +38,8 @@ const TeamSlider = () => {
   const teamMembers = [
     {
       // imgLight: "./images/globe.svg",
-      imgLight: "./images/our-team-new.png",
-      imgDark: "./images/our-team-new.png",
+      imgLight: "./images/our-team-new.webp",
+      imgDark: "./images/our-team-new.webp",
       name: "", title: "Team MedCoin", desc: "Our team is composed of specialists in blockchain and medicine — visionary professionals committed to transforming global healthcare through innovation, empathy, and technology.", desc2: 'We believe a decentralized approach represents our mission best.'
     },
     // { img: "./images/team1.png", name: "", title: "Team MedCoin", desc: "Our team is composed of specialists in blockchain and medicine — visionary professionals committed to transforming global healthcare through innovation, empathy, and technology.", desc2: 'We believe a decentralized approach represents our mission best.' },
